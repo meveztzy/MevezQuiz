@@ -41,14 +41,8 @@
       min-height: 100dvh;
     }
 
-    body.exam-locked {
-      overscroll-behavior: none;
-    }
-
-    body.exam-locked .no-copy {
-      user-select: none;
-      -webkit-user-select: none;
-    }
+    body.exam-locked { overscroll-behavior: none; }
+    body.exam-locked .no-copy { user-select: none; -webkit-user-select: none; }
 
     /* Tipografi Simbol & Rumus Matematika */
     .m-frac {
@@ -79,6 +73,17 @@
     sup { top: -0.48em; }
     sub { bottom: -0.24em; }
     .m-logbase { margin-right: 1px; font-weight: 700; }
+
+    .blank-slot {
+      display: inline-block;
+      padding: 0 8px;
+      margin: 0 2px;
+      border-radius: 5px;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-weight: 800;
+      border-bottom: 2px solid #1d4ed8;
+    }
 
     /* Navbar */
     nav {
@@ -152,13 +157,7 @@
       border-color: var(--accent);
     }
 
-    .exam-status-bar {
-      display: none;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .exam-status-bar { display: none; align-items: center; gap: 8px; flex-wrap: wrap; }
     .exam-status-bar.active { display: flex; }
 
     .violation-pill {
@@ -171,22 +170,14 @@
       color: #dcfce7;
     }
 
-    .violation-pill.warn {
-      background: rgba(217, 119, 6, 0.38);
-      border-color: #fde047;
-      color: #fef08a;
-    }
+    .violation-pill.warn { background: rgba(217, 119, 6, 0.38); border-color: #fde047; color: #fef08a; }
+    .violation-pill.danger { background: rgba(220, 38, 38, 0.9); border-color: #fecaca; color: #ffffff; }
 
-    .violation-pill.danger {
-      background: rgba(220, 38, 38, 0.9);
-      border-color: #fecaca;
-      color: #ffffff;
-    }
-
+    /* Padding bawah ekstra agar tombol tidak ketutup badge hosting (Netlify/dll) di HP */
     .container {
       max-width: 1080px;
       margin: 18px auto;
-      padding: 0 12px 56px;
+      padding: 0 12px 104px;
     }
 
     .view { display: none; }
@@ -211,18 +202,11 @@
     .card h2 { font-size: 1.18rem; margin-bottom: 6px; color: var(--primary); }
     .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 16px;
-    }
-
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
     @media (max-width: 720px) { .grid-2 { grid-template-columns: 1fr; } }
 
     label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 6px; }
 
-    /* Font 16px agar Safari iOS tidak auto-zoom saat ketik */
     input[type="text"], textarea {
       width: 100%;
       padding: 11px 12px;
@@ -235,31 +219,10 @@
 
     textarea { min-height: 195px; resize: vertical; line-height: 1.55; }
 
-    .range-box {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 10px 14px;
-    }
-
-    .range-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-
-    .range-badge {
-      background: var(--primary-light);
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.85rem;
-      padding: 2px 10px;
-      border-radius: 999px;
-    }
-
+    .range-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; }
+    .range-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+    .range-badge { background: var(--primary-light); color: #fff; font-weight: 700; font-size: 0.85rem; padding: 2px 10px; border-radius: 999px; }
     input[type="range"] { width: 100%; height: 28px; accent-color: var(--primary-light); cursor: pointer; }
-
     .preset-chips { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
 
     .chip-btn {
@@ -276,21 +239,8 @@
 
     .chip-btn.active { background: var(--primary); color: #fff; }
 
-    /* Pemilih Jenis Soal */
-    .type-selector-box {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 16px;
-    }
-
-    .type-checks {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 8px;
-      margin-top: 8px;
-    }
+    .type-selector-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 16px; }
+    .type-checks { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 8px; }
 
     .type-check-label {
       display: flex;
@@ -305,37 +255,15 @@
       font-size: 0.86rem;
     }
 
-    .type-check-label input[type="checkbox"] {
-      margin-top: 2px;
-      width: 18px;
-      height: 18px;
-      accent-color: var(--primary-light);
-      flex-shrink: 0;
-    }
+    .type-check-label input[type="checkbox"] { margin-top: 2px; width: 18px; height: 18px; accent-color: var(--primary-light); flex-shrink: 0; }
+    .type-check-label small { display: block; font-weight: 400; font-size: 0.74rem; color: var(--muted); }
 
-    .type-check-label small {
-      display: block;
-      font-weight: 400;
-      font-size: 0.74rem;
-      color: var(--muted);
-    }
-
-    /* Dropzone */
-    .upload-zone {
-      padding: 14px;
-      background: #f8fafc;
-      border: 2px dashed #94a3b8;
-      border-radius: 12px;
-      margin-bottom: 16px;
-    }
-
+    .upload-zone { padding: 14px; background: #f8fafc; border: 2px dashed #94a3b8; border-radius: 12px; margin-bottom: 16px; }
     .upload-zone.dragover { border-color: var(--primary-light); background: #eff6ff; }
     .upload-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .sample-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
-
     input[type="file"] { max-width: 100%; font-size: 0.85rem; }
 
-    /* Toolbar Simbol MTK */
     .math-toolbar {
       display: flex;
       align-items: center;
@@ -365,16 +293,7 @@
     .sym-btn:active { background: var(--primary-light); color: #ffffff; }
     .textarea-with-toolbar { border-top-left-radius: 0 !important; border-top-right-radius: 0 !important; }
 
-    .math-preview-box {
-      display: none;
-      margin-top: 12px;
-      padding: 12px;
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 10px;
-      font-size: 0.88rem;
-    }
-
+    .math-preview-box { display: none; margin-top: 12px; padding: 12px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 10px; font-size: 0.88rem; }
     .math-preview-box.active { display: block; }
     .math-preview-title { font-size: 0.78rem; font-weight: 700; color: var(--primary); margin-bottom: 6px; text-transform: uppercase; }
     .math-preview-list { display: flex; flex-direction: column; gap: 6px; max-height: 140px; overflow-y: auto; }
@@ -393,45 +312,11 @@
     .thumb-card span { display: block; padding: 3px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--muted); }
 
     .live-status { margin-top: 8px; font-size: 0.84rem; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; }
+    .exam-rule-strip { margin-top: 12px; padding: 12px 14px; background: #fef2f2; border-left: 4px solid var(--danger); border-radius: 8px; font-size: 0.84rem; color: #991b1b; }
+    .error-banner { display: none; margin-top: 12px; padding: 12px 14px; border-radius: 8px; background: var(--danger-bg); color: var(--danger); font-size: 0.9rem; font-weight: 600; border: 1px solid #fca5a5; }
+    .warn-banner { display: none; margin-top: 10px; padding: 11px 14px; border-radius: 8px; background: var(--warning-bg); color: #92400e; font-size: 0.85rem; }
 
-    .exam-rule-strip {
-      margin-top: 12px;
-      padding: 12px 14px;
-      background: #fef2f2;
-      border-left: 4px solid var(--danger);
-      border-radius: 8px;
-      font-size: 0.84rem;
-      color: #991b1b;
-    }
-
-    .error-banner {
-      display: none;
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius: 8px;
-      background: var(--danger-bg);
-      color: var(--danger);
-      font-size: 0.9rem;
-      font-weight: 600;
-      border: 1px solid #fca5a5;
-    }
-
-    .warn-banner {
-      display: none;
-      margin-top: 10px;
-      padding: 11px 14px;
-      border-radius: 8px;
-      background: var(--warning-bg);
-      color: #92400e;
-      font-size: 0.85rem;
-    }
-
-    .action-row {
-      margin-top: 16px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+    .action-row { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
 
     .btn {
       padding: 12px 18px;
@@ -445,10 +330,7 @@
       touch-action: manipulation;
     }
 
-    @media (max-width: 600px) {
-      .action-row .btn { width: 100%; }
-    }
-
+    @media (max-width: 600px) { .action-row .btn { width: 100%; } }
     .btn:disabled { opacity: 0.45; cursor: not-allowed; }
     .btn-primary { background: var(--primary-light); color: #ffffff; }
     .btn-primary:hover:not(:disabled) { background: var(--primary); }
@@ -460,16 +342,8 @@
     .btn-sm { padding: 7px 12px; min-height: 34px; font-size: 0.82rem; }
 
     /* Quiz Layout */
-    .quiz-layout {
-      display: grid;
-      grid-template-columns: 1fr 250px;
-      gap: 18px;
-      align-items: start;
-    }
-
-    @media (max-width: 860px) {
-      .quiz-layout { grid-template-columns: 1fr; }
-    }
+    .quiz-layout { display: grid; grid-template-columns: 1fr 250px; gap: 18px; align-items: start; }
+    @media (max-width: 860px) { .quiz-layout { grid-template-columns: 1fr; } }
 
     .quiz-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
     .progress-track { width: 100%; height: 10px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
@@ -480,7 +354,34 @@
     .bloom-pill { display: inline-block; background: #fef9c3; color: #854d0e; font-size: 0.76rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
     .format-pill { display: inline-block; background: #ede9fe; color: #5b21b6; font-size: 0.76rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 
-    .question-text { font-size: 1.04rem; font-weight: 600; margin-bottom: 16px; white-space: pre-line; line-height: 1.85; }
+    /* Kotak Cuplikan / Stimulus Materi pada Soal */
+    .stimulus-box {
+      display: none;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid var(--primary-light);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
+      color: #1e293b;
+      line-height: 1.75;
+    }
+
+    .stimulus-box.active { display: block; }
+
+    .stimulus-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: var(--primary-light);
+      margin-bottom: 5px;
+    }
+
+    .stimulus-body { white-space: pre-line; }
+
+    .question-text { font-size: 1.04rem; font-weight: 600; margin-bottom: 16px; white-space: pre-line; line-height: 1.8; }
     .pgk-hint { font-size: 0.82rem; color: #5b21b6; background: #f5f3ff; border: 1px solid #ddd6fe; padding: 8px 12px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; }
 
     .options-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
@@ -534,36 +435,13 @@
 
     .answer-input-wrap { margin-bottom: 20px; }
     .answer-input-wrap textarea { min-height: 125px; }
-    .answer-preview-live {
-      margin-top: 8px;
-      padding: 8px 12px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 0.88rem;
-      color: var(--primary);
-      line-height: 1.8;
-    }
+    .answer-preview-live { margin-top: 8px; padding: 8px 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; font-size: 0.88rem; color: var(--primary); line-height: 1.8; }
 
     .quiz-footer { display: flex; justify-content: space-between; gap: 10px; }
 
-    .nav-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
+    .nav-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px; }
     .nav-panel h3 { font-size: 0.94rem; color: var(--primary); margin-bottom: 10px; }
-
-    .num-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 6px;
-      max-height: 260px;
-      overflow-y: auto;
-      margin-bottom: 14px;
-    }
+    .num-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; max-height: 260px; overflow-y: auto; margin-bottom: 14px; }
 
     .num-btn {
       height: 36px;
@@ -579,7 +457,6 @@
 
     .num-btn.answered { background: #dcfce7; border-color: #16a34a; color: #166534; }
     .num-btn.current { background: var(--primary-light); border-color: var(--primary); color: #ffffff; }
-
     .legend-row { display: flex; gap: 10px; font-size: 0.76rem; color: var(--muted); margin-bottom: 10px; flex-wrap: wrap; }
     .dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: middle; }
 
@@ -608,33 +485,13 @@
     }
 
     .modal-card.violation-card { border-top: 6px solid var(--danger); }
-
-    .modal-badge {
-      display: inline-block;
-      background: var(--danger-bg);
-      color: var(--danger);
-      font-weight: 800;
-      font-size: 0.84rem;
-      padding: 5px 14px;
-      border-radius: 999px;
-      margin-bottom: 10px;
-    }
-
+    .modal-badge { display: inline-block; background: var(--danger-bg); color: var(--danger); font-weight: 800; font-size: 0.84rem; padding: 5px 14px; border-radius: 999px; margin-bottom: 10px; }
     .modal-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--text); }
     .modal-card p { font-size: 0.92rem; color: var(--muted); margin-bottom: 18px; }
     .modal-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
     /* Results */
-    .auto-submit-alert {
-      display: none;
-      background: #fef2f2;
-      border: 2px solid var(--danger);
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 18px;
-      color: #991b1b;
-    }
-
+    .auto-submit-alert { display: none; background: #fef2f2; border: 2px solid var(--danger); border-radius: 12px; padding: 14px; margin-bottom: 18px; color: #991b1b; }
     .auto-submit-alert.active { display: block; }
     .auto-submit-alert ul { margin-top: 8px; padding-left: 18px; font-size: 0.84rem; }
 
@@ -732,13 +589,13 @@
     <!-- HALAMAN 1: INPUT MATERI -->
     <section id="view-input" class="view active">
       <div class="card">
-        <h2>Masukkan Materi & Atur Soal</h2>
-        <p class="subtitle">Unggah foto catatan/PDF atau tempel materi teks/MTK (hingga <strong>50 soal</strong>: PG, PG Kompleks, Isian, Uraian).</p>
+        <h2>Masukkan Materi &amp; Atur Soal</h2>
+        <p class="subtitle">Unggah foto catatan/PDF atau tempel materi teks/MTK/Kimia. Setiap soal dilengkapi <strong>Cuplikan Konteks Materi</strong> agar pertanyaan jelas dan tidak membingungkan.</p>
 
         <div class="grid-2">
           <div>
             <label for="material-title">Judul Materi / Mata Pelajaran</label>
-            <input type="text" id="material-title" placeholder="Contoh: Matematika Kelas 10 - Eksponen">
+            <input type="text" id="material-title" placeholder="Contoh: Kimia - Konfigurasi Elektron">
           </div>
 
           <div class="range-box">
@@ -770,7 +627,7 @@
             </label>
             <label class="type-check-label">
               <input type="checkbox" id="chk-isian" checked>
-              <div>Isian Singkat<small>Ketik istilah/rumus</small></div>
+              <div>Isian Singkat<small>Lengkapi cuplikan</small></div>
             </label>
             <label class="type-check-label">
               <input type="checkbox" id="chk-uraian" checked>
@@ -789,9 +646,9 @@
               </div>
             </div>
             <div class="sample-buttons">
-              <button type="button" class="btn btn-warning btn-sm" onclick="loadSample('matematika')">Contoh MTK</button>
+              <button type="button" class="btn btn-warning btn-sm" onclick="loadSample('kimia')">Contoh Kimia</button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="loadSample('matematika')">Contoh MTK</button>
               <button type="button" class="btn btn-secondary btn-sm" onclick="loadSample('biologi')">Contoh Biologi</button>
-              <button type="button" class="btn btn-secondary btn-sm" onclick="loadSample('ekonomi')">Contoh Ekonomi</button>
             </div>
           </div>
 
@@ -820,7 +677,7 @@
           <button type="button" class="sym-btn" onclick="insertSymbol('material-text','θ')">θ</button>
           <button type="button" class="sym-btn" onclick="insertSymbol('material-text','Δ')">Δ</button>
         </div>
-        <textarea id="material-text" class="textarea-with-toolbar" placeholder="Ketik, tempel materi, atau klik Contoh MTK/Biologi/Ekonomi di atas..."></textarea>
+        <textarea id="material-text" class="textarea-with-toolbar" placeholder="Ketik, tempel materi, atau klik Contoh Kimia / MTK / Biologi di atas..."></textarea>
 
         <div class="math-preview-box" id="math-preview-box">
           <div class="math-preview-title">Pratinjau Otomatis Simbol Matematika</div>
@@ -864,6 +721,12 @@
             <span class="format-pill" id="quiz-format-badge">Pilihan Ganda</span>
             <span class="topic-pill" id="quiz-topic">Sub-bab</span>
             <span class="bloom-pill" id="quiz-bloom">C3 - Penerapan</span>
+          </div>
+
+          <!-- Kotak Cuplikan / Stimulus Materi -->
+          <div class="stimulus-box" id="quiz-stimulus-box">
+            <div class="stimulus-label" id="quiz-stimulus-label">Cuplikan Materi / Konteks Soal</div>
+            <div class="stimulus-body" id="quiz-stimulus-body"></div>
           </div>
 
           <div class="question-text" id="quiz-question"></div>
@@ -968,31 +831,25 @@
   </div>
 
   <script>
-    // --- SAFE LOCALSTORAGE (ANTI-ERROR DI SAFARI PRIVAT / WEBVIEW HP) ---
+    // --- SAFE LOCALSTORAGE ---
     var memoryStore = {};
     function safeStorageGet(key) {
-      try { return window.localStorage.getItem(key); }
-      catch (e) { return memoryStore[key] || null; }
+      try { return window.localStorage.getItem(key); } catch (e) { return memoryStore[key] || null; }
     }
     function safeStorageSet(key, val) {
-      try { window.localStorage.setItem(key, val); }
-      catch (e) { memoryStore[key] = val; }
+      try { window.localStorage.setItem(key, val); } catch (e) { memoryStore[key] = val; }
     }
     function safeStorageRemove(key) {
-      try { window.localStorage.removeItem(key); }
-      catch (e) { delete memoryStore[key]; }
+      try { window.localStorage.removeItem(key); } catch (e) { delete memoryStore[key]; }
     }
 
-    // --- LOGO PERMANEN SMAN 1 KLATEN ---
     function handleLogoFallback(imgEl) {
       imgEl.style.display = 'none';
       document.getElementById('site-logo-svg').style.display = 'block';
     }
 
-    // --- DETEKSI PERANGKAT HP / TOUCH ---
     var IS_MOBILE = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent || '') || (navigator.maxTouchPoints && navigator.maxTouchPoints > 1 && window.innerWidth < 1024);
 
-    // --- TOOLBAR SISIP SIMBOL MTK ---
     function insertSymbol(elementId, sym) {
       var el = document.getElementById(elementId);
       if (!el) return;
@@ -1006,7 +863,6 @@
       el.dispatchEvent(new Event('input'));
     }
 
-    // --- SLIDER JUMLAH SOAL (3 - 50) ---
     var rangeInput = document.getElementById('question-count');
     var rangeLabel = document.getElementById('question-count-label');
 
@@ -1029,8 +885,12 @@
       return div.innerHTML;
     }
 
+    function escapeRegex(str) {
+      return String(str || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
     function hasMathNotation(str) {
-      return /(\^|\b[a-zA-Z]+_[a-zA-Z0-9({]|sqrt\(|\\frac|\\sqrt|\\times|\\pi|\\theta|\\alpha|\\beta|<=|>=|!=|\+-|<=>|=>|√|≤|≥|≠|±|π|θ|Δ|∞|²|³|\b[a-zA-Z0-9)]+\s*=\s*[-+a-zA-Z0-9(√])/i.test(str);
+      return /(\^|\b[a-zA-Z]+_[a-zA-Z0-9({]|sqrt\(|\\frac|\\sqrt|\\times|\\pi|\\theta|\\alpha|\\beta|<=|>=|!=|\+-|<=>|=>|√|≤|≥|≠|±|π|θ|Δ|∞|²|³)/i.test(str);
     }
 
     function readBalanced(str, openIdx, openChar, closeChar) {
@@ -1138,6 +998,9 @@
       if (rawText === null || rawText === undefined) return '';
       var s = escapeHtml(String(rawText));
 
+      // Format placeholder [ _____ ] jadi sorotan biru rapi
+      s = s.replace(/\[\s*_{3,}\s*\]/g, '<span class="blank-slot">_____</span>');
+
       s = s.replace(/\$\$([^$]+)\$\$/g, '$1').replace(/\$([^$]+)\$/g, '$1').replace(/\\\((.+?)\\\)/g, '$1');
       s = s.replace(/\\left([(\[{|])/g, '$1').replace(/\\right([)\]}|])/g, '$1');
 
@@ -1194,17 +1057,17 @@
 
     // --- CONTOH MATERI ---
     var SAMPLES = {
+      kimia: {
+        title: "Kimia Kelas 10 — Konfigurasi Elektron",
+        text: "# Pengertian & Aturan Kulit Atom\nKonfigurasi elektron adalah susunan persebaran elektron pada kulit-kulit atom di sekitar inti atom.\nRumus kapasitas maksimum kulit atom: e_max = 2n^2 dimana n menyatakan nomor kulit atom.\nKulit K (n=1): kulit terdalam yang memiliki kapasitas maksimum 2 elektron.\nKulit L (n=2): kulit kedua dari inti yang memiliki kapasitas maksimum 8 elektron.\nKulit M (n=3): kulit ketiga dari inti yang memiliki kapasitas maksimum 18 elektron.\nKulit N (n=4): kulit keempat yang memiliki kapasitas maksimum 32 elektron.\nElektron valensi adalah elektron yang berada pada kulit terluar dan berperan menentukan sifat kimia unsur.\n\n# Aturan Pengisian Elektron Terluar\nAturan oktet menyatakan bahwa jumlah maksimum elektron yang boleh menempati kulit terluar adalah 8 elektron.\nContoh:\nPada pengisian konfigurasi elektron atom Kalsium (20Ca) sebagai berikut:\n- Pengisian Kulit K pada 20Ca: terisi penuh sebanyak 2 elektron sehingga tersisa 18 elektron.\n- Pengisian Kulit L pada 20Ca: terisi penuh sebanyak 8 elektron sehingga tersisa 10 elektron.\n- Pengisian Kulit M pada 20Ca: kapasitas maksimum 18 elektron, karena sisa 10 elektron tidak mencukupi 18, maka diisi sesuai kapasitas kulit sebelumnya yaitu 8 elektron.\n- Pengisian Kulit N pada 20Ca: diisi oleh sisa 2 elektron terakhir sehingga elektron valensi atom 20Ca berjumlah 2."
+      },
       matematika: {
         title: "Matematika Kelas 10 — Eksponen, Logaritma & Persamaan Kuadrat",
         text: "# Sifat Eksponen\nPerkalian bilangan berpangkat: a^m * a^n = a^(m+n) dengan basis a yang sama sehingga pangkatnya dijumlahkan.\nPembagian bilangan berpangkat: a^m / a^n = a^(m-n) dengan syarat a != 0 sehingga pangkatnya dikurangkan.\nPangkat dari bilangan berpangkat: (a^m)^n = a^(m*n) yang artinya eksponen dalam dan luar saling dikalikan.\nAturan pangkat nol: a^0 = 1 untuk setiap bilangan real dengan syarat a != 0.\nAturan pangkat negatif: a^(-n) = 1 / (a^n) yang berfungsi mengubah eksponen negatif menjadi pecahan positif.\nBentuk akar ke pangkat pecahan: sqrt(a^m) = a^(m/2) dengan syarat bilangan basis a >= 0.\n\n# Logaritma\nDefinisi logaritma: ^a log(b) = c <=> a^c = b dengan syarat basis a > 0, a != 1, dan numerus b > 0.\nSifat penjumlahan logaritma: log_a(b) + log_a(c) = log_a(b * c) pada basis yang sama.\nSifat pengurangan logaritma: log_a(b) - log_a(c) = log_a(b / c) pada basis yang sama.\nSifat pangkat numerus logaritma: log_a(b^n) = n * log_a(b) dimana pangkat numerus menjadi pengali di depan.\n\n# Persamaan Kuadrat\nDiskriminan adalah D = b^2 - 4ac yang berfungsi menentukan jenis dan banyaknya akar persamaan kuadrat.\nRumus ABC adalah x_(1,2) = (-b +- sqrt(b^2 - 4ac)) / (2a) yang digunakan menentukan akar persamaan ax^2 + bx + c = 0.\nJumlah akar persamaan kuadrat: x_1 + x_2 = -b / a untuk persamaan kuadrat ax^2 + bx + c = 0.\nHasil kali akar persamaan kuadrat: x_1 * x_2 = c / a untuk persamaan kuadrat ax^2 + bx + c = 0."
       },
       biologi: {
         title: "Biologi Kelas 10 — Virus dan Replikasinya",
-        text: "# Struktur Virus\nVirus adalah agen infeksius mikroskopis yang hanya dapat berkembang biak di dalam sel hidup organisme lain.\nKapsid merupakan selubung protein yang berfungsi melindungi materi genetik virus dari kerusakan lingkungan luar.\nBakteriofag adalah jenis virus yang secara khusus menginfeksi dan memperbanyak diri di dalam sel bakteri.\nAsam nukleat virus merupakan materi genetik berupa DNA atau RNA saja yang berfungsi mengendalikan replikasi virus.\n\n# Replikasi Virus\nSiklus litik adalah reproduksi virus yang diakhiri dengan pecahnya membran sel inang sehingga sel inang mati.\nSiklus lisogenik merupakan reproduksi virus ketika materi genetik virus menyatu dengan kromosom sel inang tanpa langsung menghancurkannya.\nProfag adalah gabungan antara asam nukleat virus dengan DNA kromosom bakteri selama fase lisogenik.\nAdsorpsi adalah tahap menempelnya serabut ekor virus pada reseptor khusus di permukaan dinding sel inang.\nPenetrasi merupakan tahap penyuntikan materi genetik virus ke dalam sitoplasma sel inang.\n\n# Peranan Virus\nVaksin adalah sediaan biologis berisi virus yang dilemahkan atau dimatikan untuk merangsang pembentukan antibodi tubuh.\nInterferon merupakan protein alami tubuh yang berfungsi menghambat replikasi virus di sel sekitarnya.\nTobacco Mosaic Virus adalah virus penyebab penyakit bercak kuning pada daun tanaman tembakau."
-      },
-      ekonomi: {
-        title: "Ekonomi Kelas 10 — Permintaan, Penawaran & Pasar",
-        text: "# Permintaan dan Penawaran\nPermintaan adalah jumlah barang dan jasa yang ingin serta mampu dibeli konsumen pada berbagai tingkat harga.\nPenawaran merupakan jumlah barang dan jasa yang tersedia dan siap dijual produsen pada tingkat harga tertentu.\nCeteris paribus adalah asumsi ekonomi yang menganggap faktor lain selain harga berada dalam keadaan tetap.\nKurva permintaan merupakan grafik yang menggambarkan hubungan berbanding terbalik antara harga dengan jumlah barang diminta.\n\n# Keseimbangan dan Elastisitas\nHarga keseimbangan adalah titik temu ketika jumlah barang yang diminta sama dengan jumlah barang yang ditawarkan sehingga pasar stabil.\nElastisitas permintaan merupakan tingkat kepekaan perubahan jumlah permintaan akibat perubahan harga barang.\nBarang substitusi adalah barang pengganti yang berfungsi menggantikan kegunaan barang lain saat harga barang utama naik.\nBarang komplementer merupakan barang pelengkap yang kegunaannya saling melengkapi ketika dikonsumsi bersama.\n\n# Struktur Pasar\nPasar monopoli adalah bentuk pasar yang hanya dikuasai satu penjual tunggal tanpa barang pengganti dekat sehingga penjual menentukan harga.\nPasar oligopoli merupakan struktur pasar yang penawarannya dikuasai oleh beberapa perusahaan besar saja.\nPasar persaingan sempurna adalah pasar dengan banyak penjual dan pembeli dimana barang yang diperdagangkan bersifat homogen."
+        text: "# Struktur Virus\nVirus adalah agen infeksius mikroskopis yang hanya dapat berkembang biak di dalam sel hidup organisme lain.\nKapsid merupakan selubung protein yang berfungsi melindungi materi genetik virus dari kerusakan lingkungan luar.\nBakteriofag adalah jenis virus yang secara khusus menginfeksi dan memperbanyak diri di dalam sel bakteri.\nAsam nukleat virus merupakan materi genetik berupa DNA atau RNA saja yang berfungsi mengendalikan replikasi virus.\n\n# Replikasi Virus\nSiklus litik adalah reproduksi virus yang diakhiri dengan pecahnya membran sel inang sehingga sel inang mati.\nSiklus lisogenik merupakan reproduksi virus ketika materi genetik virus menyatu dengan kromosom sel inang tanpa langsung menghancurkannya.\nProfag adalah gabungan antara asam nukleat virus dengan DNA kromosom bakteri selama fase lisogenik.\nAdsorpsi adalah tahap menempelnya serabut ekor virus pada reseptor khusus di permukaan dinding sel inang.\n\n# Peranan Virus\nVaksin adalah sediaan biologis berisi virus yang dilemahkan atau dimatikan untuk merangsang pembentukan antibodi tubuh.\nInterferon merupakan protein alami tubuh yang berfungsi menghambat replikasi virus di sel sekitarnya."
       }
     };
 
@@ -1217,13 +1080,13 @@
       "ketika", "dimana", "melalui", "tanpa", "saling", "saja", "berbagai", "bagian", "tempat",
       "bukan", "para", "bagi", "tentang", "hingga", "sampai", "tetap", "berada", "jenis",
       "bentuk", "proses", "tahap", "cara", "sifat", "kondisi", "keadaan", "jumlah", "tingkat",
-      "seluruh", "berfungsi", "berperan", "digunakan", "sehingga", "akibat", "berupa", "syarat"
+      "seluruh", "berfungsi", "berperan", "digunakan", "sehingga", "akibat", "berupa", "syarat",
+      "berikut", "contoh", "misal", "misalnya", "catatan", "keterangan", "diisi", "terisi"
     ]);
 
-    var HISTORY_KEY = "smansa_learning_history_v7";
+    var HISTORY_KEY = "smansa_learning_history_v8";
     var MAX_VIOLATIONS = 3;
 
-    // State Aplikasi
     var currentQuestions = [];
     var currentTitle = "";
     var userAnswers = [];
@@ -1231,7 +1094,6 @@
     var lastWrongQuestions = [];
     var isProcessingFiles = false;
 
-    // State Anti-Curang & Fullscreen (Ramah HP & Desktop)
     var examActive = false;
     var nativeFullscreenEntered = false;
     var violationCount = 0;
@@ -1276,6 +1138,13 @@
         .trim();
     }
 
+    function maskTargetInText(sentence, target) {
+      if (!sentence || !target) return sentence || '';
+      var re = new RegExp(escapeRegex(target), 'gi');
+      if (re.test(sentence)) return sentence.replace(re, '[ _____ ]');
+      return sentence;
+    }
+
     function showError(msg) {
       var box = document.getElementById('form-error');
       box.style.display = msg ? 'block' : 'none';
@@ -1295,9 +1164,7 @@
       var box = document.getElementById('ocr-box');
       box.classList.toggle('active', active);
       if (text) document.getElementById('ocr-text').textContent = text;
-      if (typeof pct === 'number') {
-        document.getElementById('ocr-fill').style.width = Math.max(0, Math.min(100, pct)) + '%';
-      }
+      if (typeof pct === 'number') document.getElementById('ocr-fill').style.width = Math.max(0, Math.min(100, pct)) + '%';
       document.getElementById('btn-start-quiz').disabled = active;
       isProcessingFiles = active;
     }
@@ -1326,7 +1193,7 @@
       window.scrollTo(0, 0);
     }
 
-    // --- SISTEM FULLSCREEN & ANTI-CURANG (KOMPATIBEL ANDROID, IOS & LAPTOP) ---
+    // --- FULLSCREEN & ANTI-CURANG (RAMAH HP & LAPTOP) ---
     function tryEnterFullscreen() {
       var el = document.documentElement;
       var fn = el.requestFullscreen || el.webkitRequestFullscreen || el.msRequestFullscreen;
@@ -1334,14 +1201,11 @@
       try {
         var res = fn.call(el);
         if (res && typeof res.then === 'function') {
-          res.then(function() { nativeFullscreenEntered = true; })
-             .catch(function() { nativeFullscreenEntered = false; });
+          res.then(function() { nativeFullscreenEntered = true; }).catch(function() { nativeFullscreenEntered = false; });
         } else {
           nativeFullscreenEntered = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
         }
-      } catch (e) {
-        nativeFullscreenEntered = false;
-      }
+      } catch (e) { nativeFullscreenEntered = false; }
     }
 
     function exitFullscreenSafe() {
@@ -1365,15 +1229,9 @@
     function updateViolationPill() {
       var pill = document.getElementById('violation-pill');
       pill.classList.remove('warn', 'danger');
-      if (violationCount === 0) {
-        pill.textContent = 'Aman • Pelanggaran: 0/' + MAX_VIOLATIONS;
-      } else if (violationCount < MAX_VIOLATIONS) {
-        pill.classList.add('warn');
-        pill.textContent = 'Peringatan • ' + violationCount + '/' + MAX_VIOLATIONS;
-      } else {
-        pill.classList.add('danger');
-        pill.textContent = 'TERAKHIR • ' + violationCount + '/' + MAX_VIOLATIONS;
-      }
+      if (violationCount === 0) pill.textContent = 'Aman • Pelanggaran: 0/' + MAX_VIOLATIONS;
+      else if (violationCount < MAX_VIOLATIONS) { pill.classList.add('warn'); pill.textContent = 'Peringatan • ' + violationCount + '/' + MAX_VIOLATIONS; }
+      else { pill.classList.add('danger'); pill.textContent = 'TERAKHIR • ' + violationCount + '/' + MAX_VIOLATIONS; }
     }
 
     function setExamLockUI(active) {
@@ -1386,8 +1244,7 @@
     function registerViolation(reason) {
       if (!examActive || isAutoSubmitting) return;
       var now = Date.now();
-      if (now < examGraceUntil) return;
-      if (now - lastViolationTs < 1500) return;
+      if (now < examGraceUntil || now - lastViolationTs < 1500) return;
 
       lastViolationTs = now;
       violationCount++;
@@ -1426,11 +1283,9 @@
 
     function onFsChange() {
       var isFs = Boolean(document.fullscreenElement || document.webkitFullscreenElement);
-      if (isFs) {
-        nativeFullscreenEntered = true;
-      } else if (examActive && nativeFullscreenEntered) {
+      if (isFs) nativeFullscreenEntered = true;
+      else if (examActive && nativeFullscreenEntered) {
         nativeFullscreenEntered = false;
-        // Di HP, jangan hitung pelanggaran palsu jika fullscreen keluar otomatis karena keyboard naik saat ketik isian/uraian
         if (IS_MOBILE && isTypingFieldActive()) return;
         registerViolation('Keluar dari mode Fullscreen');
       }
@@ -1438,42 +1293,24 @@
 
     document.addEventListener('fullscreenchange', onFsChange);
     document.addEventListener('webkitfullscreenchange', onFsChange);
-
-    // Pindah tab / tekan Home / pindah aplikasi (Berjalan di Android, iPhone, dan Laptop)
     document.addEventListener('visibilitychange', function() {
-      if (examActive && document.hidden) {
-        registerViolation('Pindah tab browser atau keluar ke aplikasi lain');
-      }
+      if (examActive && document.hidden) registerViolation('Pindah tab browser atau keluar ke aplikasi lain');
     });
-
-    // Untuk laptop/desktop: deteksi Alt+Tab / klik jendela lain (di HP tidak dipakai karena bentrok dengan keyboard & notifikasi)
     window.addEventListener('blur', function() {
-      if (examActive && !IS_MOBILE && !document.hidden) {
-        registerViolation('Membuka jendela atau aplikasi lain di luar ujian');
-      }
+      if (examActive && !IS_MOBILE && !document.hidden) registerViolation('Membuka jendela atau aplikasi lain di luar ujian');
     });
-
     document.addEventListener('contextmenu', function(e) { if (examActive) e.preventDefault(); });
-    document.addEventListener('copy', function(e) {
-      if (examActive && !isTypingFieldActive()) e.preventDefault();
-    });
+    document.addEventListener('copy', function(e) { if (examActive && !isTypingFieldActive()) e.preventDefault(); });
 
     function openSubmitConfirmModal() {
-      var answered = countAnsweredQuestions();
-      var total = currentQuestions.length;
-      var unanswered = total - answered;
-      var desc = document.getElementById('confirm-submit-desc');
-      if (unanswered > 0) {
-        desc.innerHTML = 'Kamu baru menjawab <strong>' + answered + ' dari ' + total + ' soal</strong> (masih ada <strong>' + unanswered + ' kosong</strong>). Kumpulkan sekarang?';
-      } else {
-        desc.innerHTML = 'Seluruh <strong>' + total + ' soal</strong> sudah terjawab. Kumpulkan sekarang untuk melihat hasil dan analisisnya?';
-      }
+      var answered = countAnsweredQuestions(), total = currentQuestions.length, unanswered = total - answered;
+      document.getElementById('confirm-submit-desc').innerHTML = unanswered > 0
+        ? 'Kamu baru menjawab <strong>' + answered + ' dari ' + total + ' soal</strong> (masih ada <strong>' + unanswered + ' kosong</strong>). Kumpulkan sekarang?'
+        : 'Seluruh <strong>' + total + ' soal</strong> sudah terjawab. Kumpulkan sekarang untuk melihat hasil dan analisisnya?';
       document.getElementById('confirm-submit-modal').classList.add('active');
     }
 
-    function closeSubmitConfirmModal() {
-      document.getElementById('confirm-submit-modal').classList.remove('active');
-    }
+    function closeSubmitConfirmModal() { document.getElementById('confirm-submit-modal').classList.remove('active'); }
 
     function confirmLegitimateSubmit() {
       closeSubmitConfirmModal();
@@ -1483,22 +1320,22 @@
       finishAndAnalyze(false);
     }
 
-    // --- BACA FILE (KOMPATIBEL SEMUA BROWSER HP) ---
+    // --- BACA FILE & OCR ---
     function readFileAsText(file) {
       return new Promise(function(resolve, reject) {
-        var reader = new FileReader();
-        reader.onload = function(evt) { resolve(evt.target.result || ''); };
-        reader.onerror = function() { reject(new Error('Gagal membaca file teks')); };
-        reader.readAsText(file);
+        var r = new FileReader();
+        r.onload = function(e) { resolve(e.target.result || ''); };
+        r.onerror = function() { reject(new Error('Gagal membaca file teks')); };
+        r.readAsText(file);
       });
     }
 
     function readFileAsArrayBuffer(file) {
       return new Promise(function(resolve, reject) {
-        var reader = new FileReader();
-        reader.onload = function(evt) { resolve(evt.target.result); };
-        reader.onerror = function() { reject(new Error('Gagal membaca file PDF')); };
-        reader.readAsArrayBuffer(file);
+        var r = new FileReader();
+        r.onload = function(e) { resolve(e.target.result); };
+        r.onerror = function() { reject(new Error('Gagal membaca file PDF')); };
+        r.readAsArrayBuffer(file);
       });
     }
 
@@ -1507,24 +1344,18 @@
       var text = raw.replace(/\r/g, '').replace(/-\n(?=[a-z])/g, '').replace(/[–—]/g, '-').replace(/[ \t]+/g, ' ');
       var lines = text.split('\n');
       var merged = [];
-
       for (var i = 0; i < lines.length; i++) {
         var line = lines[i].trim();
         if (!line) { merged.push(''); continue; }
         if (line.length <= 2 && !/[0-9#\-=+]/.test(line)) continue;
-
-        var isHeadingOrBullet = /^([#*•\-+]|\d+[.)]|bab\s|bagian\s)/i.test(line);
+        var isHeadingOrBullet = /^([#*•\-+]|\d+[.)]|bab\s|bagian\s|kulit\s)/i.test(line);
         var looksMathLine = /=|≤|≥|≠|<=|>=|!=|\^|√/.test(line);
-
         if (merged.length > 0 && merged[merged.length - 1] !== '' && !isHeadingOrBullet && !looksMathLine) {
           var prev = merged[merged.length - 1];
           var prevEnded = /[.!?:]$/.test(prev);
           var prevMath = /=|≤|≥|≠|<=|>=|!=|\^|√/.test(prev);
           var prevHeading = prev.length < 48 && !prevEnded && /^[A-Z0-9#]/.test(prev) && !/\s(adalah|merupakan|yaitu)\s/i.test(prev);
-          if (!prevEnded && !prevHeading && !prevMath) {
-            merged[merged.length - 1] = prev + ' ' + line;
-            continue;
-          }
+          if (!prevEnded && !prevHeading && !prevMath) { merged[merged.length - 1] = prev + ' ' + line; continue; }
         }
         merged.push(line);
       }
@@ -1532,9 +1363,7 @@
     }
 
     async function createOcrWorker(statusPrefix) {
-      if (typeof Tesseract === 'undefined') {
-        throw new Error('Library OCR belum termuat. Pastikan ada koneksi internet lalu muat ulang halaman.');
-      }
+      if (typeof Tesseract === 'undefined') throw new Error('Library OCR belum termuat. Pastikan ada koneksi internet.');
       setOcrProgress(true, statusPrefix + ': Menyiapkan mesin OCR...', 10);
       return await Tesseract.createWorker('ind+eng', 1, {
         logger: function(m) {
@@ -1552,8 +1381,7 @@
       var files = Array.prototype.slice.call(fileList || []);
       if (files.length === 0 || isProcessingFiles) return;
 
-      showError('');
-      showOcrWarning('');
+      showError(''); showOcrWarning('');
       var statusEl = document.getElementById('file-status');
       var textarea = document.getElementById('material-text');
 
@@ -1561,15 +1389,11 @@
         document.getElementById('material-title').value = files[0].name.replace(/\.[^.]+$/, '');
       }
 
-      var worker = null;
-      var extractedChunks = [];
-      var imageCountNoText = 0;
+      var worker = null, extractedChunks = [], imageCountNoText = 0;
 
       try {
         for (var fIdx = 0; fIdx < files.length; fIdx++) {
-          var file = files[fIdx];
-          var label = 'File ' + (fIdx + 1) + '/' + files.length;
-
+          var file = files[fIdx], label = 'File ' + (fIdx + 1) + '/' + files.length;
           if ((file.type && file.type.indexOf('image/') === 0) || /\.(png|jpe?g|webp|bmp|gif)$/i.test(file.name)) {
             addPreviewThumb(URL.createObjectURL(file), file.name);
             if (!worker) worker = await createOcrWorker(label);
@@ -1577,40 +1401,33 @@
             var res = await worker.recognize(file);
             var cleaned = cleanOcrText(res && res.data ? res.data.text : '');
             if (cleaned.length < 15) imageCountNoText++;
-            else extractedChunks.push('# ' + file.name.replace(/\.[^.]+$/, '') + '\n' + cleaned);
+            else extractedChunks.push(cleaned);
           } else if (/\.pdf$/i.test(file.name) || file.type === 'application/pdf') {
-            if (typeof pdfjsLib === 'undefined') {
-              throw new Error('Pembaca PDF memerlukan koneksi internet.');
-            }
+            if (typeof pdfjsLib === 'undefined') throw new Error('Pembaca PDF memerlukan koneksi internet.');
             setOcrProgress(true, label + ': Membuka PDF...', 15);
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
             var buffer = await readFileAsArrayBuffer(file);
             var pdf = await pdfjsLib.getDocument({ data: buffer }).promise;
-            var maxPages = Math.min(pdf.numPages, 10);
-            var pdfText = '';
-
+            var maxPages = Math.min(pdf.numPages, 10), pdfText = '';
             for (var p = 1; p <= maxPages; p++) {
               setOcrProgress(true, label + ': Halaman ' + p + '/' + maxPages + '...', Math.round((p / maxPages) * 100));
               var page = await pdf.getPage(p);
               var textContent = await page.getTextContent();
               var nativeText = textContent.items.map(function(it) { return it.str; }).join(' ').trim();
-
               if (nativeText.length >= 30) {
-                pdfText += '\n# Halaman ' + p + '\n' + cleanOcrText(nativeText) + '\n';
+                pdfText += '\n' + cleanOcrText(nativeText) + '\n';
               } else {
                 var viewport = page.getViewport({ scale: 1.8 });
                 var canvas = document.createElement('canvas');
                 var ctx = canvas.getContext('2d');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
+                canvas.width = viewport.width; canvas.height = viewport.height;
                 await page.render({ canvasContext: ctx, viewport: viewport }).promise;
                 addPreviewThumb(canvas.toDataURL('image/jpeg', 0.5), 'PDF Hal ' + p);
-
                 if (!worker) worker = await createOcrWorker(label + ' Hal ' + p);
                 setOcrProgress(true, label + ': OCR halaman gambar ' + p + '...', 35);
                 var ocrRes = await worker.recognize(canvas);
                 var ocrCleaned = cleanOcrText(ocrRes && ocrRes.data ? ocrRes.data.text : '');
-                if (ocrCleaned.length >= 15) pdfText += '\n# Halaman ' + p + '\n' + ocrCleaned + '\n';
+                if (ocrCleaned.length >= 15) pdfText += '\n' + ocrCleaned + '\n';
                 else imageCountNoText++;
               }
             }
@@ -1626,9 +1443,8 @@
           textarea.value = textarea.value.trim() ? textarea.value.trim() + '\n\n' + combined : combined;
           statusEl.textContent = 'Berhasil memuat materi dari ' + files.length + ' file.';
         }
-
         if (imageCountNoText > 0) {
-          showOcrWarning('<strong>Info:</strong> ' + imageCountNoText + ' gambar tidak mengandung cukup teks terbaca. Kamu bisa menambahkan catatan singkat secara manual di kotak teks.');
+          showOcrWarning('<strong>Info:</strong> ' + imageCountNoText + ' gambar tidak mengandung cukup teks terbaca.');
         }
         updateLiveStatus();
       } catch (err) {
@@ -1639,50 +1455,94 @@
       }
     }
 
-    document.getElementById('file-upload').addEventListener('change', function(e) {
-      processUploadedFiles(e.target.files);
-      e.target.value = '';
-    });
-
+    document.getElementById('file-upload').addEventListener('change', function(e) { processUploadedFiles(e.target.files); e.target.value = ''; });
     var uploadZone = document.getElementById('upload-zone');
     uploadZone.addEventListener('dragover', function(e) { e.preventDefault(); uploadZone.classList.add('dragover'); });
     uploadZone.addEventListener('dragleave', function() { uploadZone.classList.remove('dragover'); });
     uploadZone.addEventListener('drop', function(e) {
-      e.preventDefault();
-      uploadZone.classList.remove('dragover');
-      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-        processUploadedFiles(e.dataTransfer.files);
-      }
+      e.preventDefault(); uploadZone.classList.remove('dragover');
+      if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length > 0) processUploadedFiles(e.dataTransfer.files);
     });
-
     window.addEventListener('paste', function(e) {
       if (!document.getElementById('view-input').classList.contains('active')) return;
       var clip = e.clipboardData || window.clipboardData;
       var items = clip && clip.items ? clip.items : [];
-      var pastedImages = [];
+      var pasted = [];
       for (var i = 0; i < items.length; i++) {
         if (items[i].type && items[i].type.indexOf('image/') === 0) {
-          var file = items[i].getAsFile();
-          if (file) pastedImages.push(file);
+          var f = items[i].getAsFile();
+          if (f) pasted.push(f);
         }
       }
-      if (pastedImages.length > 0) {
-        e.preventDefault();
-        processUploadedFiles(pastedImages);
-      }
+      if (pasted.length > 0) { e.preventDefault(); processUploadedFiles(pasted); }
     });
 
-    // --- PARSER MATERI & RUMUS ---
-    function extractFormulaPart(text) {
+    // =========================================================================
+    // PARSER MATERI CERDAS (ANTI "SUB-BAB: CONTOH" & ANTI "SEBAGAI BERIKUT")
+    // =========================================================================
+    function isNonTopicLabel(str) {
+      var s = cleanEnd(str).toLowerCase();
+      return /^(contoh(\s+soal|\s+\d+)?|misal(nya)?|catatan|keterangan|penyelesaian|pembahasan|jawaban|solusi|latihan(\s+soal)?|soal(\s+\d+)?|ingat|perhatikan|nb|info|tips|langkah(\s+\d+)?|cara(\s+\d+)?|kesimpulan|ringkasan|halaman\s+\d+)$/i.test(s);
+    }
+
+    function isLeadInLine(str) {
+      var s = cleanEnd(str).toLowerCase();
+      return /(sebagai berikut|berikut ini|di bawah ini|seperti berikut|antara lain|diantaranya|di antaranya)$/.test(s);
+    }
+
+    function isBadTerm(str) {
+      var s = cleanEnd(str);
+      if (!s || s.length < 3 || s.length > 52) return true;
+      if (/^\d+$/.test(s)) return true;
+      if (isNonTopicLabel(s)) return true;
+      if (/^(dan|atau|karena|maka|sehingga|yang|jika|apabila|untuk|pada|dengan|dalam|dari|oleh|sebagai|bila|ketika|agar|namun|tetapi|jadi|yaitu|ialah|adalah)\b/i.test(s)) return true;
+      if (/(berikut|tersebut|di atas|di bawah)$/i.test(s)) return true;
+      var words = s.split(/\s+/);
+      // Tolak 1 kata tunggal huruf kecil generik (misal "kulit", "atom", "nilai") kecuali akronim/istilah spesifik kapital
+      if (words.length === 1 && s === s.toLowerCase() && (s.length <= 6 || STOPWORDS.has(s))) return true;
+      return false;
+    }
+
+    function isBadDesc(str) {
+      var s = cleanEnd(str);
+      if (!s) return true;
+      if (/^(sebagai berikut|berikut ini|di bawah ini|antara lain|seperti berikut|tersebut|di atas|seperti di bawah ini)$/i.test(s)) return true;
+      if (s.length < 10 && !hasMathNotation(s)) return true;
+      var meaningful = s.replace(/[^a-zA-Z0-9À-ÿ\s]/g, ' ').split(/\s+/).filter(function(w) { return w.length >= 2 && !STOPWORDS.has(w.toLowerCase()); });
+      return meaningful.length < 2 && !hasMathNotation(s);
+    }
+
+    // Ekstrak rumus MTK SEJATI saja (tolak kalimat prosa biasa yang kebetulan ada "=")
+    function extractPureMathFormula(text) {
       if (!text || !/[=≤≥≠<>⇔]/.test(text)) return null;
       var m = text.match(/([\^a-zA-Z0-9_()\[\]\\√±+\-*/·×≤≥≠<>., ]+?\s*(?:=|<=|>=|!=|≤|≥|≠|<=>|⇔)\s*[\^a-zA-Z0-9_()\[\]\\√±+\-*/·×≤≥≠<>., ]+?)(?=\s+(?:dengan|untuk|yang|dimana|di mana|pada|sehingga|jika|apabila|karena)\b|$)/i);
-      if (m) {
-        var candidate = cleanEnd(m[1]);
-        if (candidate.length >= 5 && candidate.length <= 95 && /=|≤|≥|≠|<=|>=|!=|⇔|<=>/.test(candidate)) {
-          return candidate;
-        }
+      if (!m) return null;
+      var cand = cleanEnd(m[1]);
+      if (cand.length < 5 || cand.length > 90) return null;
+
+      // Pastikan ruas kiri benar-benar ekspresi simbol/variabel MTK, BUKAN kalimat panjang seperti "maksimum 8 elektron, terisi penuh L"
+      var eqMatch = cand.match(/^(.+?)\s*(?:=|<=|>=|!=|≤|≥|≠|<=>|⇔)\s*(.+)$/);
+      if (!eqMatch) return null;
+      var lhs = eqMatch[1].trim();
+      var rhs = eqMatch[2].trim();
+      if (!lhs || !rhs || rhs.length < 1) return null;
+
+      var lhsTokens = lhs.split(/\s+/);
+      if (lhsTokens.length > 6) return null;
+      if (lhs.indexOf(',') !== -1 && !/_\(/.test(lhs)) return null; // koma biasa = kalimat prosa
+
+      // Cek kata non-matematika di ruas kiri atau ruas kanan
+      var proseWords = lhs.match(/[a-zA-Z]{5,}/g) || [];
+      var allowedMathWords = /^(sqrt|akar|log|sin|cos|tan|csc|sec|cot|lim|det|max|min|mod)$/i;
+      for (var i = 0; i < proseWords.length; i++) {
+        if (!allowedMathWords.test(proseWords[i])) return null;
       }
-      return null;
+      var rhsProse = rhs.match(/[a-zA-Z]{6,}/g) || [];
+      for (var j = 0; j < rhsProse.length; j++) {
+        if (!allowedMathWords.test(rhsProse[j])) return null;
+      }
+
+      return cand;
     }
 
     function mutateMathFormula(formula) {
@@ -1697,6 +1557,7 @@
       if (/=\s*1\b/.test(formula)) candidates.push(formula.replace(/=\s*1\b/, '= 0'));
       if (/-b\b/.test(formula)) candidates.push(formula.replace(/-b\b/, 'b'));
       if (/4ac\b/.test(formula)) candidates.push(formula.replace(/4ac\b/, '2ac'));
+      if (/2n\^2/i.test(formula)) candidates.push(formula.replace(/2n\^2/i, 'n^2'));
       if (formula.indexOf('<=') !== -1) candidates.push(formula.replace('<=', '>='));
       if (formula.indexOf('>=') !== -1) candidates.push(formula.replace('>=', '<='));
 
@@ -1704,70 +1565,149 @@
       return valid.length ? valid[Math.floor(Math.random() * valid.length)] : null;
     }
 
-    function parseMaterial(rawText) {
+    function parseMaterial(rawText, docTitle) {
       var lines = rawText.split(/\r?\n/);
-      var currentTopic = 'Materi Utama';
-      var explicitTopics = 0;
+      var defaultTopic = cleanEnd(docTitle || '') || 'Materi Utama';
+      var currentTopic = defaultTopic;
+      var currentContextIntro = '';
+      var explicitRealTopics = 0;
       var items = [];
 
       for (var i = 0; i < lines.length; i++) {
         var line = lines[i].trim();
-        if (!line) continue;
+        if (!line) {
+          // Baris kosong panjang mereset pengantar contoh sebelumnya jika bukan di tengah daftar
+          continue;
+        }
 
+        // 1. Sub-bab eksplisit diawali '#'
         if (line.charAt(0) === '#') {
-          currentTopic = line.replace(/^#+\s*/, '').trim() || 'Sub-bab';
-          explicitTopics++;
-          continue;
-        }
-        if (/^(bab|bagian|subbab|topik|materi|halaman)\s+[a-z0-9]/i.test(line) && line.length < 75 && !/\s(adalah|merupakan)\s/i.test(line) && line.indexOf('=') === -1) {
-          currentTopic = cleanEnd(line);
-          explicitTopics++;
-          continue;
-        }
-        if (line.slice(-1) === ':' && line.length < 60 && line.split(/\s+/).length <= 7 && line.indexOf('=') === -1) {
-          currentTopic = cleanEnd(line);
-          explicitTopics++;
+          var hText = cleanEnd(line.replace(/^#+\s*/, ''));
+          if (hText && !isNonTopicLabel(hText)) {
+            currentTopic = hText;
+            currentContextIntro = '';
+            explicitRealTopics++;
+          } else if (hText) {
+            currentContextIntro = hText;
+          }
           continue;
         }
 
+        // 2. Baris pendek pengantar seperti "Contoh:", "Penyelesaian:", "Catatan:" -> BUKAN sub-bab dan BUKAN fakta!
+        var noColon = cleanEnd(line);
+        if (isNonTopicLabel(noColon)) {
+          currentContextIntro = 'Contoh kasus pada ' + currentTopic;
+          continue;
+        }
+
+        // 3. Baris pengantar yang diakhiri "sebagai berikut:" / "berikut ini:" -> Simpan sebagai KONTEKS CUPLIKAN untuk poin di bawahnya!
+        if (isLeadInLine(line)) {
+          var cleanLead = cleanEnd(line.replace(/\s*(sebagai berikut|berikut ini|di bawah ini|seperti berikut|antara lain)\s*:?\.?$/i, ''));
+          if (cleanLead.length >= 8) {
+            currentContextIntro = cleanLead;
+          }
+          continue;
+        }
+
+        // 4. Judul sub-bab tanpa '#' (baris pendek berakhiran titik dua tanpa isi setelahnya)
+        if (line.slice(-1) === ':' && line.length < 62 && line.split(/\s+/).length <= 8 && line.indexOf('=') === -1) {
+          if (isNonTopicLabel(noColon)) {
+            currentContextIntro = 'Contoh pada ' + currentTopic;
+          } else {
+            // Jika seperti "Konfigurasi elektron atom 20Ca:", jadikan konteks cuplikan
+            if (/\d|contoh|kasus|atom|soal/i.test(noColon)) {
+              currentContextIntro = noColon;
+            } else {
+              currentTopic = noColon;
+              currentContextIntro = '';
+              explicitRealTopics++;
+            }
+          }
+          continue;
+        }
+
+        // 5. Judul "BAB X ..." atau baris ALL CAPS pendek
+        if ((/^(bab|bagian|subbab|topik|materi)\s+[a-z0-9]/i.test(line) || (line === line.toUpperCase() && line.length >= 5 && line.length <= 45 && /[A-Z]/.test(line))) && line.indexOf('=') === -1 && line.indexOf('.') === -1) {
+          if (!isNonTopicLabel(noColon)) {
+            currentTopic = noColon;
+            currentContextIntro = '';
+            explicitRealTopics++;
+          }
+          continue;
+        }
+
+        var isBullet = /^([-*•+]|\d+[.)])\s+/.test(line);
         var cleanedLine = line.replace(/^([-*•+]|\d+[.)])\s+/, '').trim();
         if (!cleanedLine) continue;
 
-        var parts = cleanedLine.replace(/([^.!?]{12,}[.!?])\s+/g, '$1\n').split('\n');
+        // Jika baris baru adalah paragraf normal (bukan bullet) dan tidak punya ':', reset konteks contoh lama
+        if (!isBullet && currentContextIntro && !/:/.test(cleanedLine) && cleanedLine.length > 55) {
+          currentContextIntro = '';
+        }
+
+        var parts = cleanedLine.replace(/([^.!?]{14,}[.!?])\s+/g, '$1\n').split('\n');
         for (var j = 0; j < parts.length; j++) {
           var sentence = parts[j].trim().replace(/\s+/g, ' ');
+          if (isLeadInLine(sentence)) {
+            currentContextIntro = cleanEnd(sentence.replace(/\s*(sebagai berikut|berikut ini|di bawah ini|antara lain)\s*:?\.?$/i, ''));
+            continue;
+          }
           var isMath = hasMathNotation(sentence);
-          if (sentence.split(/\s+/).length >= (isMath ? 2 : 3) && sentence.length >= (isMath ? 8 : 16)) {
-            items.push(analyzeConcept(sentence, currentTopic));
+          if (sentence.split(/\s+/).length >= (isMath ? 2 : 4) && sentence.length >= (isMath ? 10 : 18)) {
+            var item = analyzeConcept(sentence, currentTopic, currentContextIntro);
+            if (!isBadDesc(item.desc || item.sentence)) {
+              items.push(item);
+            }
           }
         }
       }
 
-      if (explicitTopics === 0 && items.length >= 6) {
-        var chunk = Math.ceil(items.length / 3);
-        var labels = ['Bagian 1 (Dasar)', 'Bagian 2 (Inti)', 'Bagian 3 (Lanjutan)'];
-        items.forEach(function(it, idx) { it.topic = labels[Math.min(Math.floor(idx / chunk), 2)]; });
+      // Kelompokkan per konteks untuk membangun cuplikan sekitar
+      for (var k = 0; k < items.length; k++) {
+        var cur = items[k];
+        var neighbors = [];
+        for (var n = 0; n < items.length; n++) {
+          if (n === k) continue;
+          if (items[n].topic === cur.topic && items[n].contextIntro === cur.contextIntro) {
+            neighbors.push(items[n].sentence);
+          }
+          if (neighbors.length >= 2) break;
+        }
+        cur.neighborSnippets = neighbors;
       }
-      return items;
+
+      return { items: items, hasExplicitTopics: explicitRealTopics >= 2 };
     }
 
-    function analyzeConcept(sentence, topic) {
+    function analyzeConcept(sentence, topic, contextIntro) {
       var term = null, desc = null;
 
-      var m = sentence.match(/^([^:.,]{2,52}?)\s+(?:adalah|merupakan|yaitu|ialah)\s+(.+?)\.?$/i);
-      if (m && m[2].length >= 5) { term = cleanEnd(m[1]); desc = cleanEnd(m[2]); }
-
-      if (!term) {
-        m = sentence.match(/^([^:.,=]{2,50}?)\s*:\s*(.{5,}?)\.?$/);
-        if (m) { term = cleanEnd(m[1]); desc = cleanEnd(m[2]); }
+      // Pola 1: Istilah adalah/merupakan/yaitu/ialah penjelasan
+      var m = sentence.match(/^([^:.,]{3,52}?)\s+(?:adalah|merupakan|yaitu|ialah)\s+(.+?)\.?$/i);
+      if (m && !isBadTerm(m[1]) && !isBadDesc(m[2])) {
+        term = cleanEnd(m[1]);
+        desc = cleanEnd(m[2]);
       }
 
+      // Pola 2: Istilah : penjelasan
       if (!term) {
-        m = sentence.match(/^([^,.;=]{3,44}?)\s+(berfungsi|berperan|bertujuan|terdiri dari|terdiri atas|mengakibatkan|menyebabkan|menghasilkan|mengangkut|melindungi|menyerap|menghambat|merangsang|mengedarkan|mengubah|menggambarkan|dipengaruhi oleh)\s+(.+?)\.?$/i);
-        if (m && m[3].length >= 8) { term = cleanEnd(m[1]); desc = cleanEnd(m[2] + ' ' + m[3]); }
+        m = sentence.match(/^([^:.,=]{3,50}?)\s*:\s*(.{6,}?)\.?$/);
+        if (m && !isBadTerm(m[1]) && !isBadDesc(m[2])) {
+          term = cleanEnd(m[1]);
+          desc = cleanEnd(m[2]);
+        }
       }
 
-      var formula = extractFormulaPart(desc || sentence);
+      // Pola 3: Subjek + kata kerja konsep
+      if (!term) {
+        m = sentence.match(/^([^,.;=]{3,44}?)\s+(berfungsi|berperan|bertujuan|menyatakan bahwa|terdiri dari|terdiri atas|mengakibatkan|menyebabkan|menghasilkan|mengangkut|melindungi|menyerap|menghambat|merangsang|mengedarkan|mengubah|menggambarkan)\s+(.+?)\.?$/i);
+        if (m && !isBadTerm(m[1]) && !isBadDesc(m[3])) {
+          term = cleanEnd(m[1]);
+          desc = cleanEnd(m[2] + ' ' + m[3]);
+        }
+      }
+
+      var formula = extractPureMathFormula(desc || sentence);
       var isMath = Boolean(formula) || hasMathNotation(sentence);
 
       var funcPhrase = null;
@@ -1786,32 +1726,62 @@
         .split(/\s+/)
         .filter(function(w) { return w.length >= 4 && !STOPWORDS.has(w.toLowerCase()) && termLower.indexOf(w.toLowerCase()) === -1; });
 
-      var uniqueClues = [];
-      var seenClue = {};
+      var uniqueClues = [], seenClue = {};
       for (var i = 0; i < rawTokens.length; i++) {
         var low = rawTokens[i].toLowerCase();
         if (!seenClue[low]) { seenClue[low] = true; uniqueClues.push(rawTokens[i]); }
       }
 
       return {
-        topic: topic, sentence: sentence, term: term, desc: desc,
-        formula: formula, isMath: isMath,
+        topic: topic,
+        contextIntro: contextIntro || '',
+        sentence: sentence,
+        term: term,
+        desc: desc,
+        formula: formula,
+        isMath: isMath,
         coreSummary: summarizeCore(desc || sentence, isMath),
-        funcPhrase: funcPhrase, clues: uniqueClues
+        funcPhrase: funcPhrase,
+        clues: uniqueClues,
+        neighborSnippets: []
       };
     }
 
     function summarizeCore(text, isMath) {
       var s = cleanEnd(text).replace(/^(jenis|bentuk|suatu|sebuah|proses|tahap|cara)\s+/i, '');
-      var limit = isMath ? 24 : 16;
+      var limit = isMath ? 24 : 18;
       var words = s.split(/\s+/);
       if (words.length > limit) s = words.slice(0, limit - 1).join(' ') + '...';
       return lowerFirstSafe(s);
     }
 
+    // Helper pembuat Cuplikan Materi (Stimulus) yang informatif & tidak membocorkan kunci
+    function buildMaskedStimulus(item, targetToMask, includeNeighbor) {
+      var lines = [];
+      if (item.contextIntro) {
+        lines.push('Konteks: ' + item.contextIntro);
+      } else {
+        lines.push('Topik: ' + item.topic);
+      }
+      if (includeNeighbor && item.neighborSnippets && item.neighborSnippets.length > 0) {
+        lines.push('"' + item.neighborSnippets[0] + '"');
+      }
+      var masked = maskTargetInText(item.sentence, targetToMask);
+      lines.push('"' + masked + '"');
+      return lines.join('\n');
+    }
+
+    function buildContextStimulus(topic, contextIntro, extraHint) {
+      var lines = ['Topik Materi: ' + topic];
+      if (contextIntro) lines.push('Konteks: ' + contextIntro);
+      if (extraHint) lines.push(extraHint);
+      return lines.join('\n');
+    }
+
     function updateLiveStatus() {
       showError('');
       var text = document.getElementById('material-text').value;
+      var title = document.getElementById('material-title').value;
       var el = document.getElementById('live-status');
       var previewBox = document.getElementById('math-preview-box');
       var previewList = document.getElementById('math-preview-list');
@@ -1823,7 +1793,8 @@
         return;
       }
 
-      var items = parseMaterial(text);
+      var parsed = parseMaterial(text, title);
+      var items = parsed.items;
       var topicSet = {};
       items.forEach(function(i) { topicSet[i.topic] = true; });
       var topics = Object.keys(topicSet).length;
@@ -1841,20 +1812,20 @@
       }
 
       if (items.length < 2) {
-        el.innerHTML = '<span>Status: <strong style="color:var(--danger);">' + items.length + ' poin (minimal 2 poin/kalimat)</strong></span><span>Tambahkan materi atau klik Contoh</span>';
+        el.innerHTML = '<span>Status: <strong style="color:var(--danger);">' + items.length + ' poin (minimal 2 kalimat materi)</strong></span><span>Tambahkan materi atau klik Contoh</span>';
       } else {
         var estMax = Math.min(50, Math.max(items.length * 3, named * 6));
-        var mathBadge = mathItems.length > 0 ? ' • ' + mathItems.length + ' rumus MTK' : '';
-        el.innerHTML = '<span>Status: <strong style="color:var(--success);">' + topics + ' bagian • ' + items.length + ' poin' + mathBadge + '</strong></span><span>Siap s/d ~' + estMax + ' soal</span>';
+        el.innerHTML = '<span>Status: <strong style="color:var(--success);">' + topics + ' bagian • ' + items.length + ' poin (' + named + ' konsep bersih)</strong></span><span>Siap s/d ~' + estMax + ' soal bercuplikan</span>';
       }
     }
 
     document.getElementById('material-text').addEventListener('input', updateLiveStatus);
+    document.getElementById('material-title').addEventListener('input', updateLiveStatus);
 
     function loadSample(key) {
       document.getElementById('material-title').value = SAMPLES[key].title;
       document.getElementById('material-text').value = SAMPLES[key].text;
-      document.getElementById('file-status').textContent = 'Contoh materi dimuat. Tap "Mulai Ujian Fullscreen & Buat Soal" di bawah.';
+      document.getElementById('file-status').textContent = 'Contoh materi dimuat. Tap "Mulai Ujian Fullscreen & Buat Soal".';
       showOcrWarning('');
       updateLiveStatus();
     }
@@ -1865,50 +1836,90 @@
       document.getElementById('file-upload').value = '';
       document.getElementById('file-status').textContent = 'Pilih foto buku, screenshot, PDF, atau klik tombol Contoh di samping.';
       var strip = document.getElementById('preview-strip');
-      strip.innerHTML = '';
-      strip.classList.remove('active');
+      strip.innerHTML = ''; strip.classList.remove('active');
       showOcrWarning('');
       updateLiveStatus();
     }
 
-    // --- GENERATOR SOAL (PG, PGK, ISIAN, URAIAN — HINGGA 50 SOAL) ---
+    // =========================================================================
+    // GENERATOR SOAL DENGAN CUPLIKAN MATERI (STIMULUS) DI SETIAP SOAL
+    // =========================================================================
     function getSelectedFormats() {
-      var formats = [];
-      if (document.getElementById('chk-pg').checked) formats.push('pg');
-      if (document.getElementById('chk-pgk').checked) formats.push('pgk');
-      if (document.getElementById('chk-isian').checked) formats.push('isian');
-      if (document.getElementById('chk-uraian').checked) formats.push('uraian');
-      return formats;
+      var f = [];
+      if (document.getElementById('chk-pg').checked) f.push('pg');
+      if (document.getElementById('chk-pgk').checked) f.push('pgk');
+      if (document.getElementById('chk-isian').checked) f.push('isian');
+      if (document.getElementById('chk-uraian').checked) f.push('uraian');
+      return f;
     }
 
-    function generateMultiFormatQuiz(rawText, maxCount, allowedFormats) {
-      var items = parseMaterial(rawText);
+    function dedupeByTerm(list) {
+      var map = {};
+      list.forEach(function(item) {
+        var key = normalizeForCompare(item.term);
+        if (!key) return;
+        if (!map[key] || item.sentence.length > map[key].sentence.length) {
+          map[key] = item;
+        }
+      });
+      return Object.keys(map).map(function(k) { return map[k]; });
+    }
+
+    function generateMultiFormatQuiz(rawText, docTitle, maxCount, allowedFormats) {
+      var parsed = parseMaterial(rawText, docTitle);
+      var items = parsed.items;
       if (items.length < 2) return [];
 
-      var namedItems = items.filter(function(i) { return i.term && i.desc; });
-      var mathFormulaItems = namedItems.filter(function(i) { return i.formula; });
-      var funcItems = items.filter(function(i) { return i.term && i.funcPhrase; });
+      var namedItems = dedupeByTerm(items.filter(function(i) { return i.term && i.desc; }));
+      var mathFormulaItems = namedItems.filter(function(i) { return Boolean(i.formula); });
+      var funcItems = namedItems.filter(function(i) { return Boolean(i.funcPhrase); });
 
       var topicMap = {};
       namedItems.forEach(function(it) {
-        if (!topicMap[it.topic]) topicMap[it.topic] = [];
-        topicMap[it.topic].push(it);
+        if (!isNonTopicLabel(it.topic)) {
+          if (!topicMap[it.topic]) topicMap[it.topic] = [];
+          topicMap[it.topic].push(it);
+        }
       });
-      var topicNames = Object.keys(topicMap);
+      var realTopicNames = Object.keys(topicMap);
 
       var pools = { pg: [], pgk: [], isian: [], uraian: [] };
 
-      // 1. PILIHAN GANDA
+      // =====================================================
+      // 1. PILIHAN GANDA (SEMUA DILENGKAPI CUPLIKAN MATERI)
+      // =====================================================
       if (allowedFormats.indexOf('pg') !== -1) {
+        // PG A: Pemahaman dari Cuplikan Materi (Istilah disamarkan dalam cuplikan utuh!)
+        if (namedItems.length >= 4) {
+          shuffle(namedItems).forEach(function(item) {
+            var distractors = shuffle(namedItems.filter(function(n) { return normalizeForCompare(n.term) !== normalizeForCompare(item.term); }))
+              .slice(0, 3).map(function(n) { return n.term; });
+            if (distractors.length < 3) return;
+            var options = shuffle([item.term].concat(distractors));
+
+            pools.pg.push({
+              format: 'pg', formatLabel: 'Pilihan Ganda',
+              topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Pemahaman Cuplikan Materi',
+              stimulusLabel: 'Cuplikan Materi',
+              stimulus: buildMaskedStimulus(item, item.term, true),
+              question: 'Berdasarkan cuplikan materi di atas, istilah atau bagian manakah yang paling tepat untuk melengkapi bagian [ _____ ]?',
+              options: options, correctIndex: options.indexOf(item.term),
+              explanation: 'Pada cuplikan tersebut, penjelasan mengacu secara tepat pada konsep "' + item.term + '".',
+              source: item.sentence
+            });
+          });
+        }
+
+        // PG B: Khusus Rumus MTK Sejati (Cuplikan konteks + pilih rumus tepat)
         if (mathFormulaItems.length >= 2) {
           shuffle(mathFormulaItems).forEach(function(item) {
             var distractors = [];
-            var seenF = {}; seenF[item.formula.trim()] = true;
+            var seenF = {}; seenF[normalizeForCompare(item.formula)] = true;
             var mutated = mutateMathFormula(item.formula);
-            if (mutated && !seenF[mutated.trim()]) { seenF[mutated.trim()] = true; distractors.push(mutated); }
+            if (mutated && !seenF[normalizeForCompare(mutated)]) { seenF[normalizeForCompare(mutated)] = true; distractors.push(mutated); }
             shuffle(mathFormulaItems).forEach(function(other) {
-              if (distractors.length < 3 && !seenF[other.formula.trim()]) {
-                seenF[other.formula.trim()] = true;
+              if (distractors.length < 3 && !seenF[normalizeForCompare(other.formula)]) {
+                seenF[normalizeForCompare(other.formula)] = true;
                 distractors.push(other.formula);
               }
             });
@@ -1916,16 +1927,19 @@
               var options = shuffle([item.formula].concat(distractors));
               pools.pg.push({
                 format: 'pg', formatLabel: 'Pilihan Ganda',
-                topic: item.topic, bloom: 'C3 - Penerapan', type: 'Penerapan Rumus MTK',
-                question: 'Pada materi "' + item.topic + '", bentuk aturan matematis manakah yang tepat untuk "' + item.term + '"?',
+                topic: item.topic, bloom: 'C3 - Penerapan', type: 'Penerapan Rumus',
+                stimulusLabel: 'Cuplikan Aturan Materi',
+                stimulus: buildMaskedStimulus(item, item.formula, false),
+                question: 'Perhatikan cuplikan aturan di atas. Bentuk persamaan/rumus manakah yang tepat mengisi [ _____ ] untuk "' + item.term + '"?',
                 options: options, correctIndex: options.indexOf(item.formula),
-                explanation: 'Rumus yang benar untuk ' + item.term + ' adalah ' + item.formula + '.',
+                explanation: 'Aturan matematis yang tepat untuk ' + item.term + ' adalah ' + item.formula + '.',
                 source: item.sentence
               });
             }
           });
         }
 
+        // PG C: Deteksi Kesalahan Rumus MTK (dengan konteks cuplikan)
         if (mathFormulaItems.length >= 4) {
           shuffle(mathFormulaItems).forEach(function(target) {
             var wrongFormula = mutateMathFormula(target.formula);
@@ -1936,137 +1950,141 @@
             pools.pg.push({
               format: 'pg', formatLabel: 'Pilihan Ganda',
               topic: target.topic, bloom: 'C4 - Analisis', type: 'Deteksi Kesalahan Rumus',
-              question: 'Periksa ketelitian tanda dan operasi pada keempat aturan matematis berikut. Manakah penulisan rumus yang SALAH?',
+              stimulusLabel: 'Konteks Evaluasi Rumus',
+              stimulus: buildContextStimulus(target.topic, target.contextIntro, 'Cermati ketelitian tanda operasi (+, −, ×, ÷), pangkat, dan syarat pada setiap aturan di bawah ini.'),
+              question: 'Dari keempat penulisan aturan/rumus berikut, manakah yang SALAH?',
               options: options, correctIndex: options.indexOf(wrongOpt),
-              explanation: '"' + wrongOpt + '" keliru operasinya. Yang tepat: ' + target.term + ': ' + target.formula + '.',
+              explanation: '"' + wrongOpt + '" keliru operasinya. Bentuk yang benar adalah ' + target.term + ': ' + target.formula + '.',
               source: target.sentence
             });
           });
         }
 
+        // PG D: Analisis Perbandingan Dua Konsep (dengan cuplikan konteks)
+        if (namedItems.length >= 4) {
+          var shN = shuffle(namedItems), pairKeys = {};
+          shN.forEach(function(A) {
+            shuffle(shN.filter(function(x) { return normalizeForCompare(x.term) !== normalizeForCompare(A.term) && normalizeForCompare(x.coreSummary) !== normalizeForCompare(A.coreSummary); })).slice(0, 3).forEach(function(B) {
+              var key = [A.term, B.term].sort().join('||');
+              if (pairKeys[key]) return;
+              var C = shN.find(function(x) {
+                return x.term !== A.term && x.term !== B.term && normalizeForCompare(x.coreSummary) !== normalizeForCompare(A.coreSummary) && normalizeForCompare(x.coreSummary) !== normalizeForCompare(B.coreSummary);
+              });
+              if (!C) return;
+              pairKeys[key] = true;
+
+              var sA = A.formula || A.coreSummary, sB = B.formula || B.coreSummary, sC = C.formula || C.coreSummary;
+              var optCorrect = A.term + ' → ' + sA + '; sedangkan ' + B.term + ' → ' + sB + '.';
+              var options = shuffle([
+                optCorrect,
+                A.term + ' → ' + sB + '; sedangkan ' + B.term + ' → ' + sA + '.',
+                A.term + ' → ' + sC + '; sedangkan ' + B.term + ' → ' + sA + '.',
+                'Baik ' + A.term + ' maupun ' + B.term + ' sama-sama mengacu pada ' + sC + '.'
+              ]);
+              pools.pg.push({
+                format: 'pg', formatLabel: 'Pilihan Ganda',
+                topic: A.topic, bloom: 'C4 - Analisis', type: 'Analisis Perbandingan',
+                stimulusLabel: 'Konteks Perbandingan Konsep',
+                stimulus: buildContextStimulus(A.topic, A.contextIntro || B.contextIntro, 'Materi membahas perbedaan peran dan aturan antara "' + A.term + '" dan "' + B.term + '".'),
+                question: 'Berdasarkan konteks materi di atas, perbandingan manakah yang paling tepat membedakan "' + A.term + '" dan "' + B.term + '"?',
+                options: options, correctIndex: options.indexOf(optCorrect),
+                explanation: A.term + ' mengacu pada ' + sA + ', sedangkan ' + B.term + ' mengacu pada ' + sB + '.',
+                source: A.sentence + ' | ' + B.sentence
+              });
+            });
+          });
+        }
+
+        // PG E: Deteksi Miskonsepsi (anti-opsi kembar!)
+        if (namedItems.length >= 4) {
+          shuffle(namedItems).forEach(function(targetWrong) {
+            var others = shuffle(namedItems.filter(function(n) {
+              return normalizeForCompare(n.term) !== normalizeForCompare(targetWrong.term) &&
+                     normalizeForCompare(n.coreSummary) !== normalizeForCompare(targetWrong.coreSummary);
+            }));
+            if (others.length < 3) return;
+            var trueSet = others.slice(0, 3);
+            var donor = others[3] || others[0];
+            var wrongStmt = targetWrong.term + ': ' + (donor.formula || donor.coreSummary) + '.';
+            var opts = [wrongStmt].concat(trueSet.map(function(t) { return t.term + ': ' + (t.formula || t.coreSummary) + '.'; }));
+            // Pastikan semua 4 opsi unik
+            var uniqCheck = {};
+            opts.forEach(function(o) { uniqCheck[normalizeForCompare(o)] = true; });
+            if (Object.keys(uniqCheck).length < 4) return;
+
+            var options = shuffle(opts);
+            pools.pg.push({
+              format: 'pg', formatLabel: 'Pilihan Ganda',
+              topic: targetWrong.topic, bloom: 'C4 - Analisis', type: 'Deteksi Miskonsepsi',
+              stimulusLabel: 'Konteks Evaluasi Konsep',
+              stimulus: buildContextStimulus(targetWrong.topic, targetWrong.contextIntro, 'Tiga pernyataan di bawah ini sesuai dengan materi, sedangkan satu pernyataan sengaja ditukar konsepnya.'),
+              question: 'Berdasarkan konteks materi di atas, manakah pernyataan yang KELIRU?',
+              options: options, correctIndex: options.indexOf(wrongStmt),
+              explanation: 'Pernyataan "' + targetWrong.term + '" salah karena itu uraian untuk "' + donor.term + '". Seharusnya ' + targetWrong.term + ': ' + (targetWrong.formula || targetWrong.coreSummary) + '.',
+              source: targetWrong.sentence
+            });
+          });
+        }
+
+        // PG F: Fungsi / Penerapan (dengan cuplikan)
         if (funcItems.length >= 1 && namedItems.length >= 4) {
           shuffle(funcItems).forEach(function(item) {
             var rawOthers = shuffle(namedItems.filter(function(n) { return n.term !== item.term; }))
-              .map(function(n) { return n.funcPhrase ? 'Digunakan untuk ' + lowerFirstSafe(n.funcPhrase) + '.' : 'Berkaitan dengan ' + n.coreSummary + '.'; });
-            var uniq = [];
-            rawOthers.forEach(function(x) { if (uniq.indexOf(x) === -1 && uniq.length < 3) uniq.push(x); });
+              .map(function(n) { return n.funcPhrase ? 'Berperan untuk ' + lowerFirstSafe(n.funcPhrase) + '.' : 'Berkaitan dengan ' + n.coreSummary + '.'; });
+            var correctOpt = 'Berperan untuk ' + lowerFirstSafe(item.funcPhrase) + '.';
+            var uniq = [], seenO = {}; seenO[normalizeForCompare(correctOpt)] = true;
+            rawOthers.forEach(function(x) {
+              if (!seenO[normalizeForCompare(x)] && uniq.length < 3) { seenO[normalizeForCompare(x)] = true; uniq.push(x); }
+            });
             if (uniq.length === 3) {
-              var correctOpt = 'Digunakan untuk ' + lowerFirstSafe(item.funcPhrase) + '.';
               var options = shuffle([correctOpt].concat(uniq));
               pools.pg.push({
                 format: 'pg', formatLabel: 'Pilihan Ganda',
                 topic: item.topic, bloom: 'C3 - Penerapan', type: 'Penerapan Fungsi',
-                question: 'Dalam materi "' + item.topic + '", peran utama dari "' + item.term + '" adalah...',
+                stimulusLabel: 'Cuplikan Konteks Materi',
+                stimulus: buildContextStimulus(item.topic, item.contextIntro, item.neighborSnippets[0] ? 'Info terkait: "' + item.neighborSnippets[0] + '"' : 'Materi ini membahas fungsi dan peran masing-masing komponen/aturan.'),
+                question: 'Dalam konteks materi di atas, peran atau tujuan utama dari "' + item.term + '" adalah...',
                 options: options, correctIndex: options.indexOf(correctOpt),
-                explanation: 'Peran inti ' + item.term + ' adalah untuk ' + lowerFirstSafe(item.funcPhrase) + '.',
+                explanation: 'Peran utama ' + item.term + ' adalah untuk ' + lowerFirstSafe(item.funcPhrase) + '.',
                 source: item.sentence
               });
             }
           });
         }
 
-        if (namedItems.length >= 4) {
-          var shuffledNamed = shuffle(namedItems);
-          var pairKeys = {};
-          shuffledNamed.forEach(function(A) {
-            shuffle(shuffledNamed.filter(function(x) { return x.term !== A.term; })).slice(0, 3).forEach(function(B) {
-              var key = [A.term, B.term].sort().join('||');
-              if (pairKeys[key]) return;
-              var C = shuffledNamed.find(function(x) { return x.term !== A.term && x.term !== B.term; });
-              if (!C) return;
-              pairKeys[key] = true;
-
-              var sA = A.formula || A.coreSummary, sB = B.formula || B.coreSummary, sC = C.formula || C.coreSummary;
-              var optCorrect = A.term + ' -> ' + sA + ', sedangkan ' + B.term + ' -> ' + sB + '.';
-              var options = shuffle([
-                optCorrect,
-                A.term + ' -> ' + sB + ', sedangkan ' + B.term + ' -> ' + sA + '.',
-                A.term + ' -> ' + sC + ', sedangkan ' + B.term + ' -> ' + sA + '.',
-                'Baik ' + A.term + ' maupun ' + B.term + ' sama-sama merujuk pada ' + sC + '.'
-              ]);
-              pools.pg.push({
-                format: 'pg', formatLabel: 'Pilihan Ganda',
-                topic: A.topic, bloom: 'C4 - Analisis', type: 'Analisis Perbandingan',
-                question: 'Bandingkan "' + A.term + '" dengan "' + B.term + '". Pernyataan analisis manakah yang paling tepat membedakan keduanya?',
-                options: options, correctIndex: options.indexOf(optCorrect),
-                explanation: A.term + ' merujuk pada ' + sA + ', sedangkan ' + B.term + ' merujuk pada ' + sB + '.',
-                source: A.sentence + ' | ' + B.sentence
-              });
-            });
-          });
-
-          shuffle(namedItems).forEach(function(targetWrong) {
-            var others = shuffle(namedItems.filter(function(n) { return n.term !== targetWrong.term; }));
-            if (others.length < 3) return;
-            var trueSet = others.slice(0, 3);
-            var donor = others[3] || others[0];
-            var wrongStmt = targetWrong.term + ' merujuk pada ' + (donor.formula || donor.coreSummary) + '.';
-            var options = shuffle([wrongStmt].concat(trueSet.map(function(t) { return t.term + ' merujuk pada ' + (t.formula || t.coreSummary) + '.'; })));
-            pools.pg.push({
-              format: 'pg', formatLabel: 'Pilihan Ganda',
-              topic: targetWrong.topic, bloom: 'C4 - Analisis', type: 'Deteksi Miskonsepsi',
-              question: 'Evaluasilah keempat pernyataan konsep berikut. Manakah pernyataan yang KELIRU terkait "' + targetWrong.topic + '"?',
-              options: options, correctIndex: options.indexOf(wrongStmt),
-              explanation: '"' + targetWrong.term + '" keliru karena itu milik "' + donor.term + '". Seharusnya ' + targetWrong.term + ' merujuk pada ' + (targetWrong.formula || targetWrong.coreSummary) + '.',
-              source: targetWrong.sentence
-            });
-          });
-
-          shuffle(namedItems).forEach(function(item) {
-            if (item.clues.length < 2) return;
-            var clueList = shuffle(item.clues).slice(0, Math.min(4, item.clues.length));
-            var distractors = shuffle(namedItems.filter(function(n) { return n.term !== item.term; })).slice(0, 3).map(function(n) { return n.term; });
-            var options = shuffle([item.term].concat(distractors));
-            pools.pg.push({
-              format: 'pg', formatLabel: 'Pilihan Ganda',
-              topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Identifikasi Karakteristik',
-              question: 'Perhatikan kata kunci ciri utama dalam "' + item.topic + '" berikut:\n' + clueList.map(function(c, i) { return '(' + (i + 1) + ') ' + lowerFirstSafe(c); }).join('   ') + '\n\nKonsep manakah yang diwakili ciri-ciri tersebut?',
-              options: options, correctIndex: options.indexOf(item.term),
-              explanation: 'Kata kunci (' + clueList.join(', ') + ') merupakan ciri inti dari ' + item.term + '.',
-              source: item.sentence
-            });
-          });
-        }
-
-        if (topicNames.length >= 2 && namedItems.length >= 4) {
-          shuffle(namedItems).forEach(function(item) {
-            var outside = namedItems.filter(function(n) { return n.topic !== item.topic; });
-            if (outside.length < 3) return;
-            var options = shuffle([item.term].concat(shuffle(outside).slice(0, 3).map(function(o) { return o.term; })));
-            pools.pg.push({
-              format: 'pg', formatLabel: 'Pilihan Ganda',
-              topic: item.topic, bloom: 'C3 - Penerapan', type: 'Klasifikasi Peta Konsep',
-              question: 'Dalam penyusunan peta konsep, istilah/aturan manakah yang secara tepat masuk dalam ruang lingkup "' + item.topic + '"?',
-              options: options, correctIndex: options.indexOf(item.term),
-              explanation: '"' + item.term + '" dibahas pada sub-bab ' + item.topic + '.',
-              source: item.sentence
-            });
-          });
-        }
-
-        // Cadangan PG untuk materi bebas/singkat
+        // Cadangan PG untuk teks naratif tanpa pola definisi
         if (pools.pg.length < 4) {
           shuffle(items).forEach(function(item) {
             var others = shuffle(items.filter(function(x) { return x.sentence !== item.sentence; }));
-            if (others.length >= 1) {
-              var cluesStr = item.clues.slice(0, 3).map(function(c) { return '"' + lowerFirstSafe(c) + '"'; }).join(', ') || '"' + item.topic + '"';
-              var correctOpt = 'Membahas tentang ' + item.coreSummary + '.';
-              var dists = others.slice(0, 3).map(function(o) { return 'Membahas tentang ' + o.coreSummary + '.'; });
-              var options = shuffle([correctOpt].concat(dists));
-              pools.pg.push({
-                format: 'pg', formatLabel: 'Pilihan Ganda',
-                topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Gagasan Pokok',
-                question: 'Dalam materi "' + item.topic + '", gagasan pokok manakah yang paling sesuai dengan kata kunci ' + cluesStr + '?',
-                options: options, correctIndex: options.indexOf(correctOpt),
-                explanation: 'Kata kunci tersebut merujuk pada: ' + item.coreSummary + '.',
-                source: item.sentence
+            if (others.length >= 2 && item.clues.length >= 1) {
+              var targetWord = item.clues[0];
+              var distWords = [];
+              others.forEach(function(o) {
+                o.clues.forEach(function(c) {
+                  if (c.toLowerCase() !== targetWord.toLowerCase() && distWords.indexOf(c) === -1 && distWords.length < 3) distWords.push(c);
+                });
               });
+              if (distWords.length >= 2) {
+                var options = shuffle([targetWord].concat(distWords.slice(0, 3)));
+                pools.pg.push({
+                  format: 'pg', formatLabel: 'Pilihan Ganda',
+                  topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Pemahaman Cuplikan',
+                  stimulusLabel: 'Cuplikan Materi',
+                  stimulus: buildMaskedStimulus(item, targetWord, false),
+                  question: 'Kata kunci yang paling tepat untuk melengkapi bagian [ _____ ] pada cuplikan materi di atas adalah...',
+                  options: options, correctIndex: options.indexOf(targetWord),
+                  explanation: 'Berdasarkan kalimat asli materi, bagian tersebut adalah "' + targetWord + '".',
+                  source: item.sentence
+                });
+              }
             }
           });
         }
       }
 
-      // 2. PILIHAN GANDA KOMPLEKS (PGK)
+      // =====================================================
+      // 2. PILIHAN GANDA KOMPLEKS (DENGAN CUPLIKAN & ANTI DUPLIKAT)
+      // =====================================================
       if (allowedFormats.indexOf('pgk') !== -1) {
         if (namedItems.length >= 4) {
           var rounds = Math.min(18, Math.max(4, namedItems.length * 2));
@@ -2078,36 +2096,62 @@
             var falseItems = sample.slice(trueCount);
 
             var optObjs = [];
+            var usedTexts = {};
+            var usedSummaries = {};
             trueItems.forEach(function(t) {
-              optObjs.push({ text: t.term + ' berkaitan dengan ' + (t.formula || t.coreSummary) + '.', isTrue: true });
-            });
-            falseItems.forEach(function(f, idx) {
-              var mut = f.formula ? mutateMathFormula(f.formula) : null;
-              var donor = trueItems[idx % trueItems.length];
-              optObjs.push({
-                text: mut ? (f.term + ' dinyatakan dengan rumus ' + mut + '.') : (f.term + ' berkaitan dengan ' + (donor.formula || donor.coreSummary) + '.'),
-                isTrue: false
-              });
+              var txt = t.term + ': ' + (t.formula || t.coreSummary) + '.';
+              usedTexts[normalizeForCompare(txt)] = true;
+              usedSummaries[normalizeForCompare(t.formula || t.coreSummary)] = true;
+              optObjs.push({ text: txt, isTrue: true });
             });
 
+            falseItems.forEach(function(f) {
+              var mut = f.formula ? mutateMathFormula(f.formula) : null;
+              var falseTxt = '';
+              if (mut) {
+                falseTxt = f.term + ': ' + mut + '.';
+              } else {
+                // Pilih donor yang BEDA ringkasan agar TIDAK pernah kembar dengan opsi lain!
+                var donor = namedItems.find(function(cand) {
+                  var sumCand = cand.formula || cand.coreSummary;
+                  return normalizeForCompare(cand.term) !== normalizeForCompare(f.term) &&
+                         normalizeForCompare(sumCand) !== normalizeForCompare(f.formula || f.coreSummary) &&
+                         !usedSummaries[normalizeForCompare(sumCand)];
+                }) || trueItems[0];
+                var dSum = donor.formula || donor.coreSummary;
+                if (normalizeForCompare(dSum) === normalizeForCompare(f.formula || f.coreSummary)) return;
+                falseTxt = f.term + ': ' + dSum + '.';
+              }
+              if (falseTxt && !usedTexts[normalizeForCompare(falseTxt)]) {
+                usedTexts[normalizeForCompare(falseTxt)] = true;
+                optObjs.push({ text: falseTxt, isTrue: false });
+              }
+            });
+
+            if (optObjs.length < 4) continue;
             var shOpts = shuffle(optObjs);
             var corrIdx = [];
             shOpts.forEach(function(o, idx) { if (o.isTrue) corrIdx.push(idx); });
+            if (corrIdx.length < 1 || corrIdx.length === shOpts.length) continue;
 
+            var ctxLead = trueItems[0].contextIntro || ('Membahas konsep: ' + trueItems.map(function(x) { return x.term; }).join(', ') + '.');
             pools.pgk.push({
               format: 'pgk', formatLabel: 'PG Kompleks',
               topic: trueItems[0].topic, bloom: 'C4 - Analisis', type: 'Evaluasi Multi-Pernyataan',
-              question: 'Cermati pernyataan-pernyataan berikut. Centang SEMUA pernyataan yang BENAR! (Ada ' + corrIdx.length + ' jawaban benar)',
+              stimulusLabel: 'Cuplikan Konteks Materi',
+              stimulus: buildContextStimulus(trueItems[0].topic, ctxLead, 'Cocokkan setiap pernyataan di bawah ini dengan konsep yang benar pada materimu.'),
+              question: 'Berdasarkan konteks materi di atas, centang SEMUA pernyataan yang BENAR! (Terdapat ' + corrIdx.length + ' jawaban benar)',
               options: shOpts.map(function(o) { return o.text; }),
               correctIndices: corrIdx,
-              explanation: 'Pernyataan yang sesuai materi adalah konsep ' + trueItems.map(function(t) { return t.term; }).join(', ') + '.',
+              explanation: 'Pernyataan yang benar sesuai materi adalah: ' + trueItems.map(function(t) { return t.term; }).join(', ') + '.',
               source: trueItems.map(function(t) { return t.sentence; }).join(' | ')
             });
           }
         }
 
-        if (topicNames.length >= 2) {
-          shuffle(topicNames).forEach(function(tName) {
+        // PGK Klasifikasi Sub-bab (HANYA jika ada >=2 sub-bab NYATA, bukan "Contoh"!)
+        if (parsed.hasExplicitTopics && realTopicNames.length >= 2) {
+          shuffle(realTopicNames).forEach(function(tName) {
             var inside = topicMap[tName];
             var outside = namedItems.filter(function(n) { return n.topic !== tName; });
             if (inside.length >= 2 && outside.length >= 2) {
@@ -2119,14 +2163,15 @@
               );
               var corrIdx = [];
               combined.forEach(function(o, idx) { if (o.isTrue) corrIdx.push(idx); });
-
               pools.pgk.push({
                 format: 'pgk', formatLabel: 'PG Kompleks',
-                topic: tName, bloom: 'C3 - Penerapan', type: 'Klasifikasi Multi-Konsep',
-                question: 'Dari daftar konsep berikut, centang SEMUA yang termasuk sub-bab "' + tName + '"!',
+                topic: tName, bloom: 'C3 - Penerapan', type: 'Klasifikasi Sub-bab',
+                stimulusLabel: 'Konteks Pemetaan Materi',
+                stimulus: buildContextStimulus(tName, '', 'Kelompokkan istilah/konsep yang termasuk dalam pembahasan sub-bab "' + tName + '" (terdapat ' + corrIdx.length + ' konsep yang tepat).'),
+                question: 'Centang SEMUA konsep yang termasuk dalam ruang lingkup "' + tName + '"!',
                 options: combined.map(function(o) { return o.text; }),
                 correctIndices: corrIdx,
-                explanation: 'Yang termasuk sub-bab "' + tName + '" adalah: ' + pickIn.map(function(x) { return x.term; }).join(', ') + '.',
+                explanation: 'Konsep yang termasuk "' + tName + '" adalah: ' + pickIn.map(function(x) { return x.term; }).join(', ') + '.',
                 source: pickIn.map(function(x) { return x.sentence; }).join(' | ')
               });
             }
@@ -2134,26 +2179,26 @@
         }
       }
 
-      // 3. ISIAN SINGKAT
+      // =====================================================
+      // 3. ISIAN SINGKAT (WAJIB ADA CUPLIKAN LENGKAP + SLOT [ _____ ])
+      // =====================================================
       if (allowedFormats.indexOf('isian') !== -1) {
         shuffle(namedItems).forEach(function(item) {
-          var hintText = item.funcPhrase
-            ? 'berperan/digunakan untuk ' + lowerFirstSafe(item.funcPhrase)
-            : (item.clues.length >= 2
-              ? 'memiliki kata kunci ciri: ' + item.clues.slice(0, 4).map(lowerFirstSafe).join(', ')
-              : 'berkaitan dengan ' + item.coreSummary);
-
+          // Isian 1: Lengkapi istilah dari cuplikan lengkap
           pools.isian.push({
             format: 'isian', formatLabel: 'Isian Singkat',
-            topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Isian Konsep',
-            question: 'Dalam sub-bab "' + item.topic + '", sebutkan nama istilah/konsep yang ' + hintText + '!',
+            topic: item.topic, bloom: 'C2 - Pemahaman', type: 'Isian Cuplikan Konsep',
+            stimulusLabel: 'Cuplikan Materi',
+            stimulus: buildMaskedStimulus(item, item.term, true),
+            question: 'Berdasarkan cuplikan materi di atas, tuliskan istilah/konsep yang tepat untuk mengisi bagian [ _____ ]!',
             acceptedAnswers: [item.term],
             displayAnswer: item.term,
             isMathInput: item.isMath,
-            explanation: 'Istilah yang dimaksud adalah "' + item.term + '".',
+            explanation: 'Bagian yang disamarkan pada cuplikan tersebut adalah "' + item.term + '".',
             source: item.sentence
           });
 
+          // Isian 2: Khusus Rumus MTK Sejati (Cuplikan konteks + lengkapi ruas kanan rumus)
           if (item.formula) {
             var parts = item.formula.split('=');
             if (parts.length === 2 && parts[1].trim().length >= 1) {
@@ -2161,11 +2206,13 @@
               pools.isian.push({
                 format: 'isian', formatLabel: 'Isian Singkat',
                 topic: item.topic, bloom: 'C3 - Penerapan', type: 'Isian Rumus MTK',
-                question: 'Pada materi "' + item.topic + '" (' + item.term + '), lengkapi ruas kanan aturan berikut:\n' + lhs + ' = ...',
+                stimulusLabel: 'Cuplikan Aturan Materi',
+                stimulus: buildMaskedStimulus(item, rhs, false),
+                question: 'Berdasarkan cuplikan aturan "' + item.term + '" di atas, tuliskan bentuk ruas kanan yang tepat untuk melengkapi:\n' + lhs + ' = [ _____ ]',
                 acceptedAnswers: [rhs, item.formula],
                 displayAnswer: rhs,
                 isMathInput: true,
-                explanation: 'Bentuk lengkapnya adalah ' + item.formula + ', sehingga ruas kanannya: ' + rhs + '.',
+                explanation: 'Aturan lengkapnya adalah ' + item.formula + ', sehingga ruas kanannya adalah ' + rhs + '.',
                 source: item.sentence
               });
             }
@@ -2173,7 +2220,9 @@
         });
       }
 
-      // 4. URAIAN / ESAI
+      // =====================================================
+      // 4. URAIAN / ESAI (DENGAN CUPLIKAN KONTEKS JELAS)
+      // =====================================================
       if (allowedFormats.indexOf('uraian') !== -1) {
         var uraianSource = namedItems.length >= 2 ? namedItems : items;
         shuffle(uraianSource).forEach(function(item) {
@@ -2183,26 +2232,29 @@
           if (rubric.length < 2) return;
 
           var titleKonsep = item.term || item.topic;
+          var neighborCtx = item.neighborSnippets[0] ? 'Sebagai perbandingan dalam materi: "' + item.neighborSnippets[0] + '"' : 'Jelaskan dengan kalimatmu sendiri disertai poin penting atau rumusnya.';
           var prompt = item.funcPhrase
-            ? 'Jelaskan dengan bahasamu sendiri mengenai "' + titleKonsep + '" pada materi "' + item.topic + '", termasuk peran utama dan akibat jika terganggu!'
-            : 'Uraikan pemahamanmu mengenai "' + titleKonsep + '" dalam materi "' + item.topic + '" (sertakan prinsip, ciri, atau rumusnya)!';
+            ? 'Jelaskan pemahamanmu tentang "' + titleKonsep + '" (termasuk fungsi/peran utamanya dalam materi ini)!'
+            : 'Uraikan penjelasan mengenai "' + titleKonsep + '" secara lengkap berdasarkan pemahamanmu terhadap materi!';
 
           pools.uraian.push({
             format: 'uraian', formatLabel: 'Uraian / Esai',
             topic: item.topic, bloom: 'C4 - Analisis', type: 'Uraian Konsep',
+            stimulusLabel: 'Cuplikan Konteks Materi',
+            stimulus: buildContextStimulus(item.topic, item.contextIntro, neighborCtx),
             question: prompt,
             rubricKeywords: rubric.slice(0, 5),
             modelAnswer: item.sentence,
             isMathInput: item.isMath,
-            explanation: 'Jawaban yang kuat mencakup poin kunci: ' + item.coreSummary + '.',
+            explanation: 'Poin inti mengenai ' + titleKonsep + ': ' + item.coreSummary + '.',
             source: item.sentence
           });
         });
 
         if (namedItems.length >= 2) {
-          var shN = shuffle(namedItems);
-          for (var u = 0; u < shN.length - 1; u += 2) {
-            var A = shN[u], B = shN[u + 1];
+          var shU = shuffle(namedItems);
+          for (var u = 0; u < shU.length - 1; u += 2) {
+            var A = shU[u], B = shU[u + 1];
             var rub = [];
             A.clues.slice(0, 3).concat(B.clues.slice(0, 3)).forEach(function(k) {
               if (k.length >= 4 && rub.indexOf(k) === -1) rub.push(k);
@@ -2211,20 +2263,21 @@
             pools.uraian.push({
               format: 'uraian', formatLabel: 'Uraian / Esai',
               topic: A.topic, bloom: 'C4 - Analisis', type: 'Uraian Perbandingan',
-              question: 'Bandingkan perbedaan mendasar antara "' + A.term + '" dengan "' + B.term + '" berdasarkan pemahamanmu!',
+              stimulusLabel: 'Konteks Perbandingan',
+              stimulus: buildContextStimulus(A.topic, A.contextIntro || B.contextIntro, 'Dalam materi ini terdapat dua konsep penting: "' + A.term + '" dan "' + B.term + '".'),
+              question: 'Jelaskan perbedaan mendasar antara "' + A.term + '" dengan "' + B.term + '" menggunakan bahasamu sendiri!',
               rubricKeywords: rub.slice(0, 6),
-              modelAnswer: A.term + ' berkaitan dengan ' + A.coreSummary + ', sedangkan ' + B.term + ' berkaitan dengan ' + B.coreSummary + '.',
+              modelAnswer: A.term + ' → ' + A.coreSummary + '; sedangkan ' + B.term + ' → ' + B.coreSummary + '.',
               isMathInput: A.isMath || B.isMath,
-              explanation: 'Perbandingan lengkap memuat ciri ' + A.term + ' dan ' + B.term + '.',
+              explanation: 'Perbandingan lengkap memuat penjelasan ciri/aturan untuk ' + A.term + ' dan ' + B.term + '.',
               source: A.sentence + ' | ' + B.sentence
             });
           }
         }
       }
 
-      // Seleksi seimbang hingga maxCount (maks 50)
-      var selected = [];
-      var seenSig = {};
+      // Seleksi seimbang antar format hingga maxCount (maks 50)
+      var selected = [], seenSig = {};
       var activeFormats = shuffle(allowedFormats.filter(function(f) { return pools[f].length > 0; }));
       activeFormats.forEach(function(f) { pools[f] = shuffle(pools[f]); });
 
@@ -2236,7 +2289,7 @@
           if (selected.length >= maxCount) break;
           while (pools[f].length > 0) {
             var q = pools[f].shift();
-            var sig = q.format + '::' + q.type + '::' + q.question;
+            var sig = q.format + '::' + q.type + '::' + (q.stimulus || '') + '::' + q.question;
             if (!seenSig[sig]) {
               seenSig[sig] = true;
               selected.push(q);
@@ -2251,7 +2304,7 @@
       return selected.sort(function(a, b) { return rank[a.format] - rank[b.format]; });
     }
 
-    // --- MULAI UJIAN (DIJAMIN LANGSUNG START DI HP & LAPTOP) ---
+    // --- MULAI UJIAN ---
     function startQuizFromMaterial() {
       showError('');
       try {
@@ -2261,7 +2314,7 @@
         var formats = getSelectedFormats();
 
         if (!text) {
-          showError('Kotak materi masih kosong! Silakan klik tombol "Contoh MTK / Biologi / Ekonomi" atau tempel/unggah materimu dulu.');
+          showError('Kotak materi masih kosong! Klik Contoh Kimia/MTK/Biologi atau unggah/tempel materimu dulu.');
           return;
         }
         if (formats.length === 0) {
@@ -2269,18 +2322,16 @@
           return;
         }
 
-        var questions = generateMultiFormatQuiz(text, targetCount, formats);
+        var questions = generateMultiFormatQuiz(text, title, targetCount, formats);
         if (questions.length === 0) {
-          showError('Materi masih terlalu pendek. Masukkan minimal 2–3 kalimat konsep atau klik salah satu tombol Contoh.');
+          showError('Materi terlalu singkat atau belum mengandung kalimat konsep yang utuh. Tambahkan minimal 3–4 kalimat materi lengkap.');
           return;
         }
 
-        // Mulai ujian dulu agar tampilan PASTI berpindah di semua HP (Android & iOS)
         launchExam(title, questions);
-        // Baru minta native fullscreen secara aman (jika browser HP mendukung)
         tryEnterFullscreen();
       } catch (err) {
-        showError('Terjadi kendala saat memulai ujian: ' + (err && err.message ? err.message : err));
+        showError('Kendala saat memulai ujian: ' + (err && err.message ? err.message : err));
       }
     }
 
@@ -2289,9 +2340,7 @@
     function launchExam(title, questions) {
       currentTitle = title;
       currentQuestions = questions;
-      userAnswers = questions.map(function(q) {
-        return q.format === 'pgk' ? [] : (q.format === 'pg' ? null : '');
-      });
+      userAnswers = questions.map(function(q) { return q.format === 'pgk' ? [] : (q.format === 'pg' ? null : ''); });
       currentIndex = 0;
 
       violationCount = 0;
@@ -2309,8 +2358,7 @@
     }
 
     function isQuestionAnswered(idx) {
-      var q = currentQuestions[idx];
-      var ans = userAnswers[idx];
+      var q = currentQuestions[idx], ans = userAnswers[idx];
       if (!q) return false;
       if (q.format === 'pg') return ans !== null && ans !== undefined;
       if (q.format === 'pgk') return Array.isArray(ans) && ans.length > 0;
@@ -2319,28 +2367,21 @@
 
     function countAnsweredQuestions() {
       var c = 0;
-      for (var i = 0; i < currentQuestions.length; i++) {
-        if (isQuestionAnswered(i)) c++;
-      }
+      for (var i = 0; i < currentQuestions.length; i++) if (isQuestionAnswered(i)) c++;
       return c;
     }
 
     function renderNumberGrid() {
-      var grid = document.getElementById('num-grid');
       var html = '';
       for (var i = 0; i < currentQuestions.length; i++) {
         var cls = i === currentIndex ? 'current' : (isQuestionAnswered(i) ? 'answered' : '');
         html += '<button type="button" class="num-btn ' + cls + '" onclick="jumpToQuestion(' + i + ')">' + (i + 1) + '</button>';
       }
-      grid.innerHTML = html;
+      document.getElementById('num-grid').innerHTML = html;
       document.getElementById('quiz-answered-count').textContent = 'Terjawab: ' + countAnsweredQuestions() + '/' + currentQuestions.length;
     }
 
-    function jumpToQuestion(idx) {
-      currentIndex = idx;
-      renderQuestion();
-      window.scrollTo(0, 0);
-    }
+    function jumpToQuestion(idx) { currentIndex = idx; renderQuestion(); window.scrollTo(0, 0); }
 
     function renderQuestion() {
       var q = currentQuestions[currentIndex];
@@ -2351,6 +2392,17 @@
       document.getElementById('quiz-format-badge').textContent = q.formatLabel;
       document.getElementById('quiz-topic').textContent = 'Sub-bab: ' + q.topic;
       document.getElementById('quiz-bloom').textContent = q.bloom;
+
+      // Render Kotak Cuplikan / Stimulus Materi
+      var stimBox = document.getElementById('quiz-stimulus-box');
+      if (q.stimulus) {
+        stimBox.classList.add('active');
+        document.getElementById('quiz-stimulus-label').textContent = q.stimulusLabel || 'Cuplikan Materi';
+        document.getElementById('quiz-stimulus-body').innerHTML = formatMathHtml(q.stimulus);
+      } else {
+        stimBox.classList.remove('active');
+      }
+
       document.getElementById('quiz-question').innerHTML = formatMathHtml(q.question);
 
       var area = document.getElementById('quiz-answer-area');
@@ -2363,7 +2415,7 @@
         }).join('') + '</div>';
       } else if (q.format === 'pgk') {
         var selArr = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex] : [];
-        area.innerHTML = '<div class="pgk-hint">Pilihan Ganda Kompleks: Centang semua jawaban yang benar (bisa lebih dari satu).</div><div class="options-list">' + q.options.map(function(opt, idx) {
+        area.innerHTML = '<div class="pgk-hint">Pilihan Ganda Kompleks: Centang semua pernyataan yang benar.</div><div class="options-list">' + q.options.map(function(opt, idx) {
           var checked = selArr.indexOf(idx) !== -1;
           return '<button type="button" class="option-btn ' + (checked ? 'selected' : '') + '" onclick="togglePgkOption(' + idx + ')"><span class="opt-check">' + (checked ? '✓' : '') + '</span><span>' + formatMathHtml(opt) + '</span></button>';
         }).join('') + '</div>';
@@ -2382,7 +2434,7 @@
 
         area.innerHTML =
           '<div class="answer-input-wrap"><label for="quiz-text-ans">Ketik Jawaban Singkatmu:</label>' + miniBar +
-          '<input type="text" id="quiz-text-ans" class="' + (q.isMathInput ? 'textarea-with-toolbar' : '') + '" value="' + escapeHtml(val) + '" placeholder="Tulis istilah atau rumus di sini..." autocomplete="off">' +
+          '<input type="text" id="quiz-text-ans" class="' + (q.isMathInput ? 'textarea-with-toolbar' : '') + '" value="' + escapeHtml(val) + '" placeholder="Tulis istilah atau rumus untuk melengkapi [ _____ ]..." autocomplete="off">' +
           (q.isMathInput ? '<div class="answer-preview-live" id="ans-math-prev">Pratinjau: ' + (val ? formatMathHtml(val) : '-') + '</div>' : '') +
           '</div>';
 
@@ -2396,7 +2448,7 @@
         var eVal = userAnswers[currentIndex] || '';
         area.innerHTML =
           '<div class="answer-input-wrap"><label for="quiz-essay-ans">Tuliskan Jawaban Uraianmu:</label>' +
-          '<textarea id="quiz-essay-ans" placeholder="Jelaskan konsep, fungsi, perbedaan, atau rumusnya dengan bahasamu sendiri...">' + escapeHtml(eVal) + '</textarea>' +
+          '<textarea id="quiz-essay-ans" placeholder="Jelaskan dengan bahasamu sendiri secara lengkap...">' + escapeHtml(eVal) + '</textarea>' +
           '<div style="font-size:0.78rem; color:var(--muted); margin-top:6px;">Tips: Sertakan kata kunci inti dan penjelasan logis.</div></div>';
 
         document.getElementById('quiz-essay-ans').addEventListener('input', function(e) {
@@ -2417,10 +2469,7 @@
       renderNumberGrid();
     }
 
-    function selectPgOption(idx) {
-      userAnswers[currentIndex] = idx;
-      renderQuestion();
-    }
+    function selectPgOption(idx) { userAnswers[currentIndex] = idx; renderQuestion(); }
 
     function togglePgkOption(idx) {
       var arr = Array.isArray(userAnswers[currentIndex]) ? userAnswers[currentIndex].slice() : [];
@@ -2431,20 +2480,13 @@
       renderQuestion();
     }
 
-    function prevQuestion() {
-      if (currentIndex > 0) { currentIndex--; renderQuestion(); window.scrollTo(0, 0); }
-    }
-
-    function nextQuestion() {
-      if (currentIndex < currentQuestions.length - 1) { currentIndex++; renderQuestion(); window.scrollTo(0, 0); }
-    }
+    function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); window.scrollTo(0, 0); } }
+    function nextQuestion() { if (currentIndex < currentQuestions.length - 1) { currentIndex++; renderQuestion(); window.scrollTo(0, 0); } }
 
     // --- PENILAIAN 4 JENIS SOAL ---
     function evaluateQuestion(q, ans) {
       if (q.format === 'pg') {
-        if (ans === null || ans === undefined) {
-          return { credit: 0, status: 'wrong', userText: '(Tidak dijawab)', correctText: q.options[q.correctIndex] };
-        }
+        if (ans === null || ans === undefined) return { credit: 0, status: 'wrong', userText: '(Tidak dijawab)', correctText: q.options[q.correctIndex] };
         var ok = ans === q.correctIndex;
         return { credit: ok ? 1 : 0, status: ok ? 'correct' : 'wrong', userText: q.options[ans], correctText: q.options[q.correctIndex] };
       }
@@ -2455,28 +2497,20 @@
         if (chosen.length === 0) return { credit: 0, status: 'wrong', userText: '(Tidak dijawab)', correctText: correctText };
 
         var hits = 0, falsePos = 0;
-        chosen.forEach(function(i) {
-          if (q.correctIndices.indexOf(i) !== -1) hits++;
-          else falsePos++;
-        });
+        chosen.forEach(function(i) { if (q.correctIndices.indexOf(i) !== -1) hits++; else falsePos++; });
         var exact = hits === q.correctIndices.length && falsePos === 0;
         var credit = exact ? 1 : Math.max(0, (hits - falsePos * 0.5) / q.correctIndices.length);
-        var status = exact ? 'correct' : (credit >= 0.4 ? 'partial' : 'wrong');
-        return { credit: credit, status: status, userText: chosen.map(function(i) { return '• ' + q.options[i]; }).join('\n'), correctText: correctText };
+        return { credit: credit, status: exact ? 'correct' : (credit >= 0.4 ? 'partial' : 'wrong'), userText: chosen.map(function(i) { return '• ' + q.options[i]; }).join('\n'), correctText: correctText };
       }
 
       if (q.format === 'isian') {
         var raw = typeof ans === 'string' ? ans.trim() : '';
         if (!raw) return { credit: 0, status: 'wrong', userText: '(Tidak dijawab)', correctText: q.displayAnswer };
-        var normUser = normalizeForCompare(raw);
-        var matched = false, partial = false;
-
+        var normUser = normalizeForCompare(raw), matched = false, partial = false;
         for (var i = 0; i < q.acceptedAnswers.length; i++) {
           var normAcc = normalizeForCompare(q.acceptedAnswers[i]);
           if (normUser === normAcc) { matched = true; break; }
-          if (!q.isMathInput && normAcc.length >= 5 && (normUser.indexOf(normAcc) !== -1 || (normUser.length >= 5 && normAcc.indexOf(normUser) !== -1))) {
-            partial = true;
-          }
+          if (!q.isMathInput && normAcc.length >= 4 && (normUser.indexOf(normAcc) !== -1 || (normUser.length >= 4 && normAcc.indexOf(normUser) !== -1))) partial = true;
         }
         return { credit: matched ? 1 : (partial ? 0.75 : 0), status: matched ? 'correct' : (partial ? 'partial' : 'wrong'), userText: raw, correctText: q.displayAnswer };
       }
@@ -2484,16 +2518,13 @@
       if (q.format === 'uraian') {
         var rawE = typeof ans === 'string' ? ans.trim() : '';
         if (!rawE) return { credit: 0, status: 'wrong', userText: '(Tidak dijawab)', correctText: q.modelAnswer, hitKeywords: [], missKeywords: q.rubricKeywords };
-
-        var normAns = normalizeForCompare(rawE);
-        var hitKeywords = [], missKeywords = [];
+        var normAns = normalizeForCompare(rawE), hitKeywords = [], missKeywords = [];
         q.rubricKeywords.forEach(function(kw) {
           var normKw = normalizeForCompare(kw);
           var stem = normKw.length >= 6 ? normKw.slice(0, normKw.length - 2) : normKw;
           if (normAns.indexOf(normKw) !== -1 || (stem.length >= 4 && normAns.indexOf(stem) !== -1)) hitKeywords.push(kw);
           else missKeywords.push(kw);
         });
-
         var ratio = q.rubricKeywords.length > 0 ? hitKeywords.length / q.rubricKeywords.length : 0;
         var creditE = 0;
         if (rawE.split(/\s+/).length >= 3) {
@@ -2510,8 +2541,7 @@
     function renderBars(containerId, statsObj) {
       var weakList = [];
       var html = Object.keys(statsObj).map(function(label) {
-        var stat = statsObj[label];
-        var pct = Math.round((stat.earned / stat.total) * 100);
+        var stat = statsObj[label], pct = Math.round((stat.earned / stat.total) * 100);
         var barClass = 'bar-good', badgeClass = 'badge-good', statusText = 'Kuat';
         if (pct < 50) { barClass = 'bar-weak'; badgeClass = 'badge-weak'; statusText = 'Prioritas'; weakList.push({ label: label, pct: pct }); }
         else if (pct < 75) { barClass = 'bar-mid'; badgeClass = 'badge-mid'; statusText = 'Tingkatkan'; weakList.push({ label: label, pct: pct }); }
@@ -2523,9 +2553,8 @@
 
     function finishAndAnalyze(wasAutoSubmitted) {
       var totalCredit = 0, fullCorrect = 0, partial = 0, wrong = 0;
-      var topicStats = {}, formatStats = {};
+      var topicStats = {}, formatStats = {}, evaluatedItems = [];
       lastWrongQuestions = [];
-      var evaluatedItems = [];
 
       currentQuestions.forEach(function(q, idx) {
         var ev = evaluateQuestion(q, userAnswers[idx]);
@@ -2547,19 +2576,14 @@
       var autoBox = document.getElementById('auto-submit-alert');
       if (wasAutoSubmitted) {
         autoBox.classList.add('active');
-        autoBox.style.background = '#fef2f2';
-        autoBox.style.borderColor = '#dc2626';
-        autoBox.style.color = '#991b1b';
-        autoBox.innerHTML = '<strong>UJIAN DIHENTIKAN OTOMATIS (PELANGGARAN > 3x)!</strong><div style="font-size:0.88rem; margin-top:4px;">Tercatat ' + violationCount + ' pelanggaran keluar halaman. Jawaban langsung dikumpulkan apa adanya.</div><ul>' + violationLogs.map(function(l) { return '<li>' + escapeHtml(l) + '</li>'; }).join('') + '</ul>';
+        autoBox.style.background = '#fef2f2'; autoBox.style.borderColor = '#dc2626'; autoBox.style.color = '#991b1b';
+        autoBox.innerHTML = '<strong>UJIAN DIHENTIKAN OTOMATIS (PELANGGARAN > 3x)!</strong><div style="font-size:0.88rem; margin-top:4px;">Tercatat ' + violationCount + ' pelanggaran. Jawaban langsung dikumpulkan apa adanya.</div><ul>' + violationLogs.map(function(l) { return '<li>' + escapeHtml(l) + '</li>'; }).join('') + '</ul>';
       } else if (violationCount > 0) {
         autoBox.classList.add('active');
-        autoBox.style.background = '#fffbeb';
-        autoBox.style.borderColor = '#f59e0b';
-        autoBox.style.color = '#92400e';
+        autoBox.style.background = '#fffbeb'; autoBox.style.borderColor = '#f59e0b'; autoBox.style.color = '#92400e';
         autoBox.innerHTML = '<strong>Catatan Pengawasan:</strong> Tercatat ' + violationCount + '/' + MAX_VIOLATIONS + ' pelanggaran.<ul>' + violationLogs.map(function(l) { return '<li>' + escapeHtml(l) + '</li>'; }).join('') + '</ul>';
       } else {
-        autoBox.classList.remove('active');
-        autoBox.innerHTML = '';
+        autoBox.classList.remove('active'); autoBox.innerHTML = '';
       }
 
       document.getElementById('result-subtitle').textContent = 'Materi: ' + currentTitle + ' (' + total + ' soal)';
@@ -2604,12 +2628,13 @@
         }
         return '<div class="review-item ' + ev.status + '">' +
           '<div class="review-meta"><strong>' + labelStatus + '</strong> • ' + escapeHtml(q.formatLabel) + ' • ' + escapeHtml(q.topic) + '</div>' +
+          (q.stimulus ? '<div class="source-quote" style="margin-bottom:8px;"><strong>Cuplikan:</strong> ' + formatMathHtml(q.stimulus) + '</div>' : '') +
           '<div style="font-weight:600; margin-bottom:6px; white-space:pre-line;">' + formatMathHtml(q.question) + '</div>' +
           '<div style="font-size:0.9rem; white-space:pre-line;">Jawabanmu: <span class="' + ansClass + '">' + formatMathHtml(ev.userText) + '</span>' +
           (ev.status !== 'correct' ? '\nJawaban benar:\n<span class="ans-correct">' + formatMathHtml(ev.correctText) + '</span>' : '') + '</div>' +
           rubricHtml +
           '<div class="explain-box"><strong>Penjelasan:</strong> ' + formatMathHtml(q.explanation) + '</div>' +
-          '<div class="source-quote"><strong>Sumber materi:</strong> "' + formatMathHtml(q.source) + '"</div></div>';
+          '<div class="source-quote"><strong>Sumber materi asli:</strong> "' + formatMathHtml(q.source) + '"</div></div>';
       }).join('');
 
       saveHistory({
@@ -2641,22 +2666,14 @@
       var container = document.getElementById('history-container');
       var list = [];
       try { list = JSON.parse(safeStorageGet(HISTORY_KEY)) || []; } catch (e) { list = []; }
-
-      if (list.length === 0) {
-        container.innerHTML = '<p style="color: var(--muted); padding: 14px 0;">Belum ada riwayat ujian.</p>';
-        return;
-      }
-
+      if (list.length === 0) { container.innerHTML = '<p style="color: var(--muted); padding: 14px 0;">Belum ada riwayat ujian.</p>'; return; }
       container.innerHTML = '<div style="overflow-x:auto;"><table><thead><tr><th>Tgl</th><th>Materi</th><th>Nilai</th><th>Pelanggaran</th><th>Perlu Ditingkatkan</th></tr></thead><tbody>' +
         list.map(function(item) {
           return '<tr><td>' + escapeHtml(item.date) + '</td><td><strong>' + escapeHtml(item.title) + '</strong></td><td><span class="status-badge ' + (item.score >= 75 ? 'badge-good' : 'badge-weak') + '">' + item.score + '</span></td><td>' + escapeHtml(item.violationStatus || '0/3') + '</td><td>' + escapeHtml(item.weakAreas) + '</td></tr>';
         }).join('') + '</tbody></table></div>';
     }
 
-    function clearHistory() {
-      safeStorageRemove(HISTORY_KEY);
-      renderHistory();
-    }
+    function clearHistory() { safeStorageRemove(HISTORY_KEY); renderHistory(); }
   </script>
 </body>
 </html>
